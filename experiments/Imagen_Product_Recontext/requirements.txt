@@ -1,0 +1,7 @@
+google-genai
+google-cloud-aiplatform
+google-cloud-storage
+ipywidgets
+pandas
+matplotlib
+Pillow

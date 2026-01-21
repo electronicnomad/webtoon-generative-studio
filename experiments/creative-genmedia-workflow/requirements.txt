@@ -1,0 +1,6 @@
+google-cloud-storage
+google-genai
+gunicorn
+mesop
+numpy
+pandas

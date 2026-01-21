@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Configuration files
+.env
+
+.DS_Store
+.gemini
+
+samples/
+
+.commit.txt

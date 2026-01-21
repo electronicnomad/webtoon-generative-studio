@@ -1,0 +1,23 @@
+{
+  "name": "genkit-genmedia-mcp-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "genkit start -- node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Google Cloud Applied AI Engineering",
+  "license": "ISC",
+  "dependencies": {
+    "@genkit-ai/googleai": "^1.7.0",
+    "@genkit-ai/vertexai": "^1.7.0",
+    "genkit": "^1.7.0",
+    "genkitx-mcp": "^1.7.0"
+  },
+  "devDependencies": {
+    "genkit-cli": "^1.7.0"
+  }
+}

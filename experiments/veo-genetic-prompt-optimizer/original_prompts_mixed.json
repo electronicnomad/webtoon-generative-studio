@@ -1,0 +1,19 @@
+[
+  {
+    "prompt": "Scene of ant"
+  },
+  {
+    "prompt": "make sure that the subjects move the body in the video to avoid a static video, add slow motion to the video.",
+    "image_path": "images/2.png"
+  },
+  {
+    "prompt": "Scene of ladybug"
+  },
+  {
+    "prompt": "make sure that the subjects move the body in the video to avoid a static video, add slow motion to the video.",
+    "image_path": "images/4.png"
+  },
+  {
+    "prompt": "Scene of European mantis"
+  }
+]

@@ -1,0 +1,8 @@
+#BABEL_ENDPOINT=http://localhost:8080
+BABEL_ENDPOINT=
+PROJECT_ID=
+LOCATION=
+
+# GCS Bucket with path, but no gs://
+# e.g.: my-bucket/babel
+GENMEDIA_BUCKET=

@@ -1,0 +1,26 @@
+[project]
+name = "Promptlandia"
+version = "0.1.0"
+description = "Promptlandia - a prompt analysis and improvement playground"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "black>=25.1.0",
+    "google-genai>=1.2.0",
+    "gunicorn>=23.0.0",
+    "mesop>=0.14.1",
+    "pytest>=8.4.1",
+    "pytest-mock>=3.14.1",
+    "python-dotenv>=1.0.1",
+    "tenacity>=9.0.0",
+    "pytest-playwright>=0.5.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["components*", "config*", "models*", "pages*", "state*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.7",
+]

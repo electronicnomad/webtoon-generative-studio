@@ -1,0 +1,52 @@
+# See <https://help.github.com/en/articles/about-code-owners>
+# for more info about CODEOWNERS file
+
+# Global owner
+* @GoogleCloudPlatform/google-cloud-aaie @ghchinoy @awaemmanuel
+
+## v.next
+/experiments/veo-app/ @GoogleCloudPlatform/google-cloud-aaie @ghchinoy @awaemmanuel
+
+# Experiments
+/experiments/ @GoogleCloudPlatform/google-cloud-aaie @ghchinoy @awaemmanuel
+
+## MCP Servers for Genmedia
+/experiments/mcp-genmedia/ @ghchinoy
+
+## Promptlandia
+/experiments/promptlandia/ @ghchinoy @dkashkin
+
+## Babel
+/experiments/babel/ @ghchinoy
+
+## Creative Generative Workflow
+/experiments/creative-genmedia-workflow/ @GoogleCloudPlatform/google-cloud-aaie @mandieq
+
+## Notebooks
+/experiments/Imagen_Product_Recontext/ @GoogleCloudPlatform/google-cloud-aaie @LUJ20
+/experiments/VTO/ @GoogleCloudPlatform/google-cloud-aaie @LUJ20
+
+## Veo Optimizer
+/experiments/veo-genetic-prompt-optimizer/ @GoogleCloudPlatform/google-cloud-aaie @cnemri
+
+## Character / Item Consistency
+/experiments/veo3-character-consistency/ @GoogleCloudPlatform/google-cloud-aaie @cnemri
+/experiments/veo3-item-consistency/ @GoogleCloudPlatform/google-cloud-aaie @PavithraCS25
+
+## Arena
+/experiments/arena/ @GoogleCloudPlatform/google-cloud-aaie @ghchinoy @awaemmanuel
+
+## VeoStart
+/experiments/VeoStart/ @GoogleCloudPlatform/google-cloud-aaie @WafaeBakkali
+
+## Storycraft
+/experiments/storycraft/ @GoogleCloudPlatform/google-cloud-aaie @mblanc
+
+## Countdown workflow
+/experiments/countdown-workflow/ @GoogleCloudPlatform/google-cloud-aaie @cnemri
+
+## Brand consistency
+/experiments/brand_consistency @GoogleCloudPlatform/google-cloud-aaie @Yansun3
+
+## Run, Veo, Run
+/experiments/run-veo-run/ @ghchinoy

@@ -1,0 +1,20 @@
+[project]
+name = "babel-web"
+version = "0.1.0"
+description = "Web app for Babel"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dataclasses-json>=0.6.7",
+    "fastapi>=0.115.11",
+    "fastapi-cli>=0.0.7",
+    "flask>=3.1.0",
+    "google-auth>=2.38.0",
+    "google-cloud-logging>=3.11.4",
+    "gunicorn>=23.0.0",
+    "mesop>=0.14.1",
+    "numpy>=2.2.2",
+    "pandas>=2.2.3",
+    "uvicorn>=0.34.0",
+    "werkzeug>=3.1.3",
+]

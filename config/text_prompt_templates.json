@@ -1,0 +1,34 @@
+[
+  {
+    "key": "summarize_short",
+    "label": "Summarize (Short)",
+    "prompt": "Summarize the following text in a single, concise paragraph:",
+    "category": "Editing",
+    "template_type": "text",
+    "attribution": "genmedia_studio"
+  },
+  {
+    "key": "summarize_bullets",
+    "label": "Summarize (Bullets)",
+    "prompt": "Summarize the key points of the following text as a bulleted list:",
+    "category": "Editing",
+    "template_type": "text",
+    "attribution": "genmedia_studio"
+  },
+  {
+    "key": "explain_like_im_5",
+    "label": "Explain Like I'm 5",
+    "prompt": "Explain the following concept as if you were talking to a 5-year-old:",
+    "category": "Creative",
+    "template_type": "text",
+    "attribution": "genmedia_studio"
+  },
+  {
+    "key": "blog_post_idea",
+    "label": "Blog Post Ideas",
+    "prompt": "Generate 5 blog post ideas based on the following topic:",
+    "category": "Creative",
+    "template_type": "text",
+    "attribution": "genmedia_studio"
+  }
+]

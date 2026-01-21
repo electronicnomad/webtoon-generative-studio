@@ -1,0 +1,220 @@
+{
+  "audio_metadata": [
+    {
+      "voice_name": "kn-IN-Chirp3-HD-Leda",
+      "language_code": "kn-IN",
+      "text": "আজকের অনুষ্ঠানে স্বাগতম! \n",
+      "audio_path": "20250314.075243.25-kn-IN-Chirp3-HD-Leda-kn-IN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 99884
+    },
+    {
+      "voice_name": "pt-BR-Chirp3-HD-Leda",
+      "language_code": "pt-BR",
+      "text": "Sejam bem-vindos ao evento de hoje! \n",
+      "audio_path": "20250314.075243.25-pt-BR-Chirp3-HD-Leda-pt-BR-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 109484
+    },
+    {
+      "voice_name": "mr-IN-Chirp3-HD-Leda",
+      "language_code": "mr-IN",
+      "text": "आजच्या कार्यक्रमात आपले स्वागत आहे! \n",
+      "audio_path": "20250314.075243.25-mr-IN-Chirp3-HD-Leda-mr-IN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 105644
+    },
+    {
+      "voice_name": "th-TH-Chirp3-HD-Leda",
+      "language_code": "th-TH",
+      "text": "ยินดีต้อนรับสู่งานวันนี้! \n",
+      "audio_path": "20250314.075243.25-th-TH-Chirp3-HD-Leda-th-TH-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 105644
+    },
+    {
+      "voice_name": "cmn-CN-Chirp3-HD-Leda",
+      "language_code": "cmn-CN",
+      "text": "欢迎参加今天的活动！ \n",
+      "audio_path": "20250314.075243.25-cmn-CN-Chirp3-HD-Leda-cmn-CN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 115244
+    },
+    {
+      "voice_name": "ko-KR-Chirp3-HD-Leda",
+      "language_code": "ko-KR",
+      "text": "오늘 행사에 오신 것을 환영합니다! \n",
+      "audio_path": "20250314.075243.25-ko-KR-Chirp3-HD-Leda-ko-KR-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 117164
+    },
+    {
+      "voice_name": "es-ES-Chirp3-HD-Puck",
+      "language_code": "es-ES",
+      "text": "¡Bienvenidos al evento de hoy! \n",
+      "audio_path": "20250314.075243.25-es-ES-Chirp3-HD-Puck-es-ES-MALE.wav",
+      "gender": "MALE",
+      "bytes": 115244
+    },
+    {
+      "voice_name": "th-TH-Chirp3-HD-Puck",
+      "language_code": "th-TH",
+      "text": "ยินดีต้อนรับสู่งานวันนี้! \n",
+      "audio_path": "20250314.075243.25-th-TH-Chirp3-HD-Puck-th-TH-MALE.wav",
+      "gender": "MALE",
+      "bytes": 124844
+    },
+    {
+      "voice_name": "en-US-Chirp3-HD-Puck",
+      "language_code": "en-US",
+      "text": "Hey everyone, welcome! \n",
+      "audio_path": "20250314.075243.25-en-US-Chirp3-HD-Puck-en-US-MALE.wav",
+      "gender": "MALE",
+      "bytes": 124844
+    },
+    {
+      "voice_name": "tr-TR-Chirp3-HD-Leda",
+      "language_code": "tr-TR",
+      "text": "Bugün etkinliğimize hoş geldiniz! \n",
+      "audio_path": "20250314.075243.25-tr-TR-Chirp3-HD-Leda-tr-TR-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 130604
+    },
+    {
+      "voice_name": "vi-VN-Chirp3-HD-Puck",
+      "language_code": "vi-VN",
+      "text": "Chào mừng các bạn đến với sự kiện hôm nay! \n",
+      "audio_path": "20250314.075243.25-vi-VN-Chirp3-HD-Puck-vi-VN-MALE.wav",
+      "gender": "MALE",
+      "bytes": 134444
+    },
+    {
+      "voice_name": "en-IN-Chirp3-HD-Leda",
+      "language_code": "en-IN",
+      "text": "Aap sabhi ka aaj ke event mein swagat hai! \n",
+      "audio_path": "20250314.075243.25-en-IN-Chirp3-HD-Leda-en-IN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 109484
+    },
+    {
+      "voice_name": "gu-IN-Chirp3-HD-Leda",
+      "language_code": "gu-IN",
+      "text": "આજના કાર્યક્રમમાં આપનું સ્વાગત છે! \n",
+      "audio_path": "20250314.075243.25-gu-IN-Chirp3-HD-Leda-gu-IN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 140204
+    },
+    {
+      "voice_name": "ar-XA-Chirp3-HD-Leda",
+      "language_code": "ar-XA",
+      "text": "أهلاً وسهلاً بكم في فعالية اليوم! \n",
+      "audio_path": "20250314.075243.25-ar-XA-Chirp3-HD-Leda-ar-XA-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 142124
+    },
+    {
+      "voice_name": "en-GB-Chirp3-HD-Puck",
+      "language_code": "en-GB",
+      "text": "Welcome, everyone, to today's exciting event!",
+      "audio_path": "welcome_event-audio_en-GB-Chirp3-HD-Puck_en-GB_0.mp3",
+      "gender": "MALE",
+      "bytes": 151724
+    },
+    {
+      "voice_name": "en-GB-Chirp3-HD-Leda",
+      "language_code": "en-GB",
+      "text": "Welcome, everyone, to today's exciting event!",
+      "audio_path": "welcome_event3-audio_en-GB-Chirp3-HD-Leda_en-GB_0.mp3",
+      "gender": "FEMALE",
+      "bytes": 151724
+    },
+    {
+      "voice_name": "id-ID-Chirp3-HD-Leda",
+      "language_code": "id-ID",
+      "text": "Selamat datang di acara hari ini! \n",
+      "audio_path": "20250314.075243.25-id-ID-Chirp3-HD-Leda-id-ID-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 145964
+    },
+    {
+      "voice_name": "de-DE-Chirp3-HD-Leda",
+      "language_code": "de-DE",
+      "text": "Willkommen zur heutigen Veranstaltung! \n",
+      "audio_path": "20250314.075243.25-de-DE-Chirp3-HD-Leda-de-DE-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 153644
+    },
+    {
+      "voice_name": "ja-JP-Chirp3-HD-Puck",
+      "language_code": "ja-JP",
+      "text": "本日のイベントへようこそ！ \n",
+      "audio_path": "20250314.075243.25-ja-JP-Chirp3-HD-Puck-ja-JP-MALE.wav",
+      "gender": "MALE",
+      "bytes": 94124
+    },
+    {
+      "voice_name": "en-AU-Chirp3-HD-Puck",
+      "language_code": "en-AU",
+      "text": "Welcome, everyone, to today's exciting event!",
+      "audio_path": "welcome_event-audio_en-AU-Chirp3-HD-Puck_en-AU_0.mp3",
+      "gender": "MALE",
+      "bytes": 111404
+    },
+    {
+      "voice_name": "pl-PL-Chirp3-HD-Puck",
+      "language_code": "pl-PL",
+      "text": "Witamy na dzisiejszym wydarzeniu! \n",
+      "audio_path": "20250314.075243.25-pl-PL-Chirp3-HD-Puck-pl-PL-MALE.wav",
+      "gender": "MALE",
+      "bytes": 167084
+    },
+    {
+      "voice_name": "ar-XA-Chirp3-HD-Puck",
+      "language_code": "ar-XA",
+      "text": "أهلاً وسهلاً بكم في فعالية اليوم! \n",
+      "audio_path": "20250314.075243.25-ar-XA-Chirp3-HD-Puck-ar-XA-MALE.wav",
+      "gender": "MALE",
+      "bytes": 121004
+    },
+    {
+      "voice_name": "tr-TR-Chirp3-HD-Puck",
+      "language_code": "tr-TR",
+      "text": "Bugün etkinliğimize hoş geldiniz! \n",
+      "audio_path": "20250314.075243.25-tr-TR-Chirp3-HD-Puck-tr-TR-MALE.wav",
+      "gender": "MALE",
+      "bytes": 186284
+    },
+    {
+      "voice_name": "ta-IN-Chirp3-HD-Leda",
+      "language_code": "ta-IN",
+      "text": "आजच्या कार्यक्रमात आपले स्वागत आहे! \n",
+      "audio_path": "20250314.075243.25-ta-IN-Chirp3-HD-Leda-ta-IN-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 103724
+    },
+    {
+      "voice_name": "es-US-Chirp3-HD-Leda",
+      "language_code": "es-US",
+      "text": "¡Bienvenidos al evento de hoy! \n",
+      "audio_path": "20250314.075243.25-es-US-Chirp3-HD-Leda-es-US-FEMALE.wav",
+      "gender": "FEMALE",
+      "bytes": 97964
+    },
+    {
+      "voice_name": "en-US-Chirp3-HD-Leda",
+      "language_code": "en-US",
+      "text": "Welcome, everyone, to today's exciting event!",
+      "audio_path": "welcome_event-audio_en-US-Chirp3-HD-Leda_en-US_0.mp3",
+      "gender": "FEMALE",
+      "bytes": 101804
+    },
+    {
+      "voice_name": "hi-IN-Chirp3-HD-Puck",
+      "language_code": "hi-IN",
+      "text": "आज के कार्यक्रम में आपका स्वागत है! \n",
+      "audio_path": "20250314.075243.25-hi-IN-Chirp3-HD-Puck-hi-IN-MALE.wav",
+      "gender": "MALE",
+      "bytes": 99884
+    }
+  ]
+}
