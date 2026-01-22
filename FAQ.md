@@ -69,6 +69,32 @@ resource "google_iap_web_iam_member" "group_iap_access" {
 
 For more details on available configuration options and environment variables, please refer to [Environment Variables](ENVIRONMENT_VARIABLES.md).
 
+### Q: I'm seeing "Error Code 11" when accessing the application via IAP (External Users)
+
+**A:** This error typically occurs when there is a mismatch between the **OAuth Client ID** used by IAP and the **User Type** (Internal vs. External) configuration, especially if you switched from Internal to External after initial creation.
+
+**Solution: Manually Create and Assign a New OAuth Client**
+
+IAP's auto-generated client often gets stuck in "Internal" mode. You must force a replacement:
+
+1.  **Create a New Client:**
+    *   Go to **APIs & Services > Credentials**.
+    *   Click **+ CREATE CREDENTIALS > OAuth client ID**.
+    *   Select **Web application**. Name it something like "IAP External Client".
+    *   (Important) **Authorized redirect URIs**: Add the IAP callback URL format:
+        `https://iap.googleapis.com/v1/oauth/clientIds/[YOUR_NEW_CLIENT_ID]:handleRedirect`
+        *(Note: You'll need to create the client first to get the ID, then edit it to add this URI)*.
+
+2.  **Assign to IAP:**
+    *   Go to **Security > Identity-Aware Proxy**.
+    *   Find your backend resource (e.g., `creative-studio`).
+    *   Click the **pencil icon (✎)** or use the 3-dot menu to **"Edit OAuth Client"**.
+    *   Select **"Use a different OAuth client"**.
+    *   Enter your **new Client ID** and **Client Secret**.
+    *   Save.
+
+3.  **Verify Brand Settings:** Ensure your [OAuth Consent Screen](https://console.cloud.google.com/apis/credentials/consent) has a valid **Support Email** and **Developer Contact Info**. Missing these causes immediate errors for external users.
+
 ### Q: The application works, but I'm not able to see images?
 
 **A:** If the application UI loads but images (or other media assets) are failing to display, this is usually due to one of two reasons:
@@ -160,6 +186,30 @@ resource "google_iap_web_iam_member" "group_iap_access" {
 ```
 
 사용 가능한 구성 옵션 및 환경 변수에 대한 자세한 내용은 [환경 변수](ENVIRONMENT_VARIABLES.md)를 참조하세요.
+
+### Q: IAP로 접속 시 "Error Code 11"이 발생합니다 (외부 사용자)
+
+**A:** 이 오류는 주로 IAP가 사용하는 **OAuth 클라이언트 ID**와 **사용자 유형(User Type)** 설정(내부 vs 외부)이 일치하지 않을 때 발생합니다. 특히 처음에 내부용으로 만들었다가 나중에 외부로 전환한 경우에 자주 발생합니다.
+
+**해결책: 새 OAuth 클라이언트를 수동으로 생성하여 강제 적용**
+
+IAP가 자동으로 생성한 클라이언트가 "내부용"으로 고정되어 있어서 발생하는 문제입니다.
+
+1.  **새 클라이언트 생성:**
+    *   **API 및 서비스 > 사용자 인증 정보**로 이동합니다.
+    *   **+ 사용자 인증 정보 만들기 > OAuth 클라이언트 ID**를 클릭합니다.
+    *   **웹 애플리케이션**을 선택하고 이름(예: `IAP External Client`)을 입력합니다.
+    *   (중요) **승인된 리디렉션 URI**: 아래 형식의 IAP 콜백 주소를 반드시 추가해야 합니다:
+        `https://iap.googleapis.com/v1/oauth/clientIds/[새_클라이언트_ID]:handleRedirect`
+        *(팁: 클라이언트를 먼저 만들어서 ID를 확인한 후, 다시 수정 화면에 들어가서 추가하세요.)*
+
+2.  **IAP에 강제 적용:**
+    *   **보안 > Identity-Aware Proxy**로 이동합니다.
+    *   리소스(예: `creative-studio`) 줄의 **연필 아이콘(✎)** 또는 점 3개 메뉴의 **"OAuth 클라이언트 수정"**을 클릭합니다.
+    *   **"다른 OAuth 클라이언트 사용"**을 선택합니다.
+    *   방금 만든 **새 Client ID**와 **Secret**을 입력하고 저장합니다.
+
+3.  **브랜드 설정 확인:** [OAuth 동의 화면](https://console.cloud.google.com/apis/credentials/consent)에 **지원 이메일(Support Email)**과 **개발자 연락처 정보**가 빠짐없이 입력되어 있는지 확인하세요. 이 정보가 없으면 외부 사용자는 무조건 차단됩니다.
 
 ### Q: 애플리케이션은 작동하지만 이미지를 볼 수 없습니다?
 

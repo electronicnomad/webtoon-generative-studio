@@ -656,3 +656,27 @@ def get_all_datasets() -> List[dict]:
     except Exception as e:
         logger.error(f"Error fetching datasets: {e}")
         return []
+
+
+def get_media_by_dataset(dataset_name: str, limit: int = 50) -> List[MediaItem]:
+    """Retrieves media items associated with a specific dataset."""
+    if not db:
+        return []
+    
+    try:
+        query = (
+            db.collection(config.GENMEDIA_COLLECTION_NAME)
+            .where("dataset_name", "==", dataset_name)
+            .order_by("timestamp", direction=firestore.Query.DESCENDING)
+            .limit(limit)
+        )
+        docs = list(query.stream())
+        media_items = []
+        for doc in docs:
+            item = _create_media_item_from_dict(doc.id, doc.to_dict())
+            if item:
+                media_items.append(item)
+        return media_items
+    except Exception as e:
+        logger.error(f"Error fetching media for dataset '{dataset_name}': {e}")
+        return []

@@ -20,6 +20,10 @@ def analyze_conte(conte_uri: str) -> str:
     Analyze this sketch/conte for a cartoon. Describe the scene, characters, composition, and action in detail.
     Focus on visual elements that should be present in the final high-quality cartoon frame.
     Ignore rough sketch artifacts; describe the intended scene.
+    
+    IMPORTANT: Any RED lines or strokes in the image are NOT part of the visual scene. They are ANNOTATIONS or INSTRUCTIONS describing the action, movement, or context.
+    - Do NOT include "red lines" in the visual description.
+    - DO use the meaning of the red annotations to enhance the scene description (e.g., if a red arrow points up, describe the character jumping or moving up).
     """
     
     try:

@@ -32,11 +32,22 @@ def on_load(e: me.LoadEvent):
     state.is_loading = True
     yield
     
-    # Fetch datasets
-    state.datasets = get_all_datasets()
-    if state.datasets:
-        # Default to first one if available? Or let user select.
-        pass
+    try:
+        # Fetch datasets
+        raw_datasets = get_all_datasets()
+        # Serialize datetimes for Mesop state
+        for d in raw_datasets:
+            for k, v in d.items():
+                if hasattr(v, 'isoformat'):
+                    d[k] = v.isoformat()
+        state.datasets = raw_datasets
+        
+        if state.datasets:
+            # Default to first one if available? Or let user select.
+            pass
+    except Exception as e:
+        print(f"Error in cartoon_pro on_load: {e}")
+        # Optionally set an error state to display to user
         
     state.is_loading = False
     yield
@@ -90,7 +101,9 @@ def page():
                             on_selection_change=on_dataset_change,
                             style=me.Style(flex_grow=1)
                         )
-                        me.icon_button(icon="refresh", on_click=on_refresh_datasets, tooltip="Refresh Datasets")
+                        with me.content_button(type="icon", on_click=on_refresh_datasets):
+                            me.tooltip(message="Refresh Datasets")
+                            me.icon("refresh")
                     
                     # Collapsible or Separate Section for Uploading New Assets
                     with me.expansion_panel(title="Manage Datasets & Assets"):

@@ -1,17 +1,28 @@
 import mesop as me
-from dataclasses import dataclass
-from typing import Callable, Optional
+from dataclasses import dataclass, field, asdict
+from typing import Callable, Optional, List, Dict
 import datetime
 
 from common.storage import store_to_gcs
-from common.metadata import add_media_item, save_dataset
+from common.metadata import add_media_item, save_dataset, get_all_datasets, get_media_by_dataset, MediaItem
+from common.utils import create_display_url
 from state.state import AppState
-@dataclass
+
+@me.stateclass
 class DatasetUploaderState:
     dataset_name: str = ""
     description: str = ""
     is_uploading: bool = False
     upload_status: str = ""
+    
+    # New fields for enhancements
+    is_new_dataset: bool = False
+    selected_existing_dataset: str = ""
+    existing_datasets: list[dict] = field(default_factory=list)
+    
+    # Thumbnail display
+    dataset_assets: list[dict] = field(default_factory=list)
+    asset_count: int = 0
 
 @me.component
 def dataset_uploader():
@@ -24,32 +35,132 @@ def dataset_uploader():
     with me.box(style=me.Style(display="flex", flex_direction="column", gap=16, border=me.Border.all(me.BorderSide(width=1, color="#e0e0e0")), padding=me.Padding.all(16), border_radius=8)):
         me.text("Add to Dataset", type="headline-6")
         
-        me.input(
-            label="Dataset Name (e.g. 'Project Alpha')",
-            value=state.dataset_name,
-            on_input=on_dataset_name_input,
-            style=me.Style(width="100%")
-        )
-        
-        me.textarea(
-            label="Description (Optional context for this dataset)",
-            value=state.description,
-            on_input=on_description_input,
-            style=me.Style(width="100%")
-        )
+        # Mode Toggle
+        with me.box(style=me.Style(display="flex", flex_direction="row", gap=16, margin=me.Margin(bottom=16))):
+            me.radio(
+                options=[
+                    me.RadioOption(label="Existing Project", value="existing"),
+                    me.RadioOption(label="New Project", value="new"),
+                ],
+                on_change=on_mode_change,
+                value="new" if state.is_new_dataset else "existing"
+            )
+
+        if state.is_new_dataset:
+            # New Dataset Form
+            me.input(
+                label="Dataset Name (e.g. 'Project Alpha')",
+                value=state.dataset_name,
+                on_input=on_dataset_name_input,
+                key="dataset_name",
+                style=me.Style(width="100%")
+            )
+            
+            me.textarea(
+                label="Description (Optional context for this dataset)",
+                value=state.description,
+                on_input=on_description_input,
+                key="dataset_description",
+                style=me.Style(width="100%")
+            )
+        else:
+            # Existing Dataset Selector
+            if not state.existing_datasets:
+                 me.text("No datasets found or not loaded. Click refresh.", style=me.Style(color="gray", font_size=12))
+            
+            with me.box(style=me.Style(display="flex", align_items="center", gap=8)):
+                 options = [
+                     me.SelectOption(label=d["name"], value=d["name"]) 
+                     for d in state.existing_datasets
+                 ]
+                 me.select(
+                     label="Select Existing Link/Project",
+                     options=options,
+                     value=state.selected_existing_dataset,
+                     on_selection_change=on_existing_dataset_change,
+                     style=me.Style(flex_grow=1),
+                     key="existing_dataset_select"
+                 )
+                 with me.content_button(type="icon", on_click=on_refresh_datasets):
+                     me.tooltip(message="Refresh Projects")
+                     me.icon("refresh")
 
         me.uploader(
-            label="Upload Asset (Image)",
+            label="Upload Assets (Images)",
             accepted_file_types=["image/jpeg", "image/png", "image/webp"],
             on_upload=on_file_upload,
-            style=me.Style(width="100%")
+            style=me.Style(width="100%"),
+            multiple=True
         )
+        me.text("Note: You can select multiple files if your browser calls for it, they will replace one by one if not handled carefully.", type="body-2", style=me.Style(color="gray"))
 
         if state.is_uploading:
             me.progress_spinner()
         
         if state.upload_status:
             me.text(state.upload_status)
+            
+        # Thumbnails Grid
+        if state.asset_count > 0:
+            me.divider()
+            me.text(f"Dataset Contents ({state.asset_count} assets)", type="subtitle-1", style=me.Style(font_weight="bold"))
+            with me.box(style=me.Style(display="flex", flex_wrap="wrap", gap=8, max_height=300, overflow_y="auto")):
+                for asset in state.dataset_assets:
+                    # Determine source URL
+                    src = ""
+                    if asset.get("thumbnail_uri"):
+                         src = asset.get("thumbnail_uri")
+                    elif asset.get("gcsuri"):
+                         src = create_display_url(asset.get("gcsuri"))
+                    elif asset.get("gcs_uris") and len(asset.get("gcs_uris")) > 0:
+                         src = create_display_url(asset.get("gcs_uris")[0])
+                    
+                    if src:
+                        me.image(
+                            src=src,
+                            style=me.Style(width=80, height=80, object_fit="cover", border_radius=4, border=me.Border.all(me.BorderSide(width=1, color="#eee")))
+                        )
+        elif not state.is_new_dataset and state.selected_existing_dataset:
+             me.text("No assets found in this dataset.", style=me.Style(color="gray", font_size=12))
+
+
+def on_mode_change(e: me.RadioChangeEvent):
+    state = me.state(DatasetUploaderState)
+    state.is_new_dataset = (e.value == "new")
+    if not state.is_new_dataset and not state.existing_datasets:
+        # Auto-load
+        load_datasets(state)
+
+def on_refresh_datasets(e: me.ClickEvent):
+    state = me.state(DatasetUploaderState)
+    load_datasets(state)
+
+def load_datasets(state: DatasetUploaderState):
+    raw_datasets = get_all_datasets()
+    for d in raw_datasets:
+        for k, v in d.items():
+            if hasattr(v, 'isoformat'):
+                d[k] = v.isoformat()
+    state.existing_datasets = raw_datasets
+    
+def load_dataset_assets(state: DatasetUploaderState, dataset_name: str):
+    items = get_media_by_dataset(dataset_name)
+    state.asset_count = len(items)
+    # Serialize to dicts for safe state storage
+    assets_dicts = []
+    for item in items:
+        d = asdict(item)
+        # Handle datetime serialization if necessary (asdict might keep datetime objects)
+        if d.get("timestamp") and isinstance(d["timestamp"], datetime.datetime):
+            d["timestamp"] = d["timestamp"].isoformat()
+        assets_dicts.append(d)
+    state.dataset_assets = assets_dicts
+
+def on_existing_dataset_change(e: me.SelectSelectionChangeEvent):
+    state = me.state(DatasetUploaderState)
+    state.selected_existing_dataset = e.value
+    if state.selected_existing_dataset:
+        load_dataset_assets(state, state.selected_existing_dataset)
 
 def on_dataset_name_input(e: me.InputEvent):
     state = me.state(DatasetUploaderState)
@@ -63,23 +174,32 @@ def on_file_upload(e: me.UploadEvent):
     state = me.state(DatasetUploaderState)
     app_state = me.state(AppState)
     
-    if not state.dataset_name:
-        state.upload_status = "Error: Please enter a Dataset Name first."
-        return
+    target_dataset_name = ""
+    
+    if state.is_new_dataset:
+        if not state.dataset_name:
+            state.upload_status = "Error: Please enter a Dataset Name first."
+            return
+        target_dataset_name = state.dataset_name
+    else:
+        if not state.selected_existing_dataset:
+            state.upload_status = "Error: Please select an Existing Project first."
+            return
+        target_dataset_name = state.selected_existing_dataset
 
     state.is_uploading = True
-    state.upload_status = "Uploading..."
+    state.upload_status = f"Uploading {e.file.name}..."
     yield
 
     try:
-        # 1. Save Dataset Metadata (create/update)
-        save_dataset(state.dataset_name, state.description)
+        if state.is_new_dataset:
+            # 1. Save Dataset Metadata (only if new)
+            save_dataset(target_dataset_name, state.description)
 
         # 2. Upload File to GCS
-        # We'll use a specific folder for datasets: `datasets/{dataset_name}/{filename}`
         file_content = e.file.read()
         gcs_uri = store_to_gcs(
-            folder=f"datasets/{state.dataset_name}",
+            folder=f"datasets/{target_dataset_name}",
             file_name=e.file.name,
             mime_type=e.file.mime_type,
             contents=file_content
@@ -90,14 +210,17 @@ def on_file_upload(e: me.UploadEvent):
             user_email=app_state.user_email,
             gcsuri=gcs_uri,
             mime_type=e.file.mime_type,
-            dataset_name=state.dataset_name,
-            media_type="image", # Assumption, could be inferred
+            dataset_name=target_dataset_name,
+            media_type="image", 
             status="complete",
             prompt="Uploaded Asset for Dataset",
             mode="dataset_upload",
         )
 
-        state.upload_status = f"Successfully uploaded {e.file.name} to {state.dataset_name}"
+        state.upload_status = f"Successfully uploaded {e.file.name} to {target_dataset_name}"
+        
+        # 4. Refresh Assets List
+        load_dataset_assets(state, target_dataset_name)
              
     except Exception as ex:
         state.upload_status = f"Upload failed: {str(ex)}"
