@@ -68,3 +68,5 @@ drivectl-mcp.log
 
 server.log
 uv.lock
+.terraform.lock.hcl
+*.swp
