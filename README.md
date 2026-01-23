@@ -134,7 +134,7 @@ graph LR
     subgraph "Google Cloud"
         LB[Load Balancer]
         IAP[Identity Aware Proxy]
-        CR["Cloud Run\n(Creative Studio)"]
+        CR["Cloud Run (Creative Studio)"]
         FS[(Cloud Firestore)]
         GCS[(Cloud Storage)]
     end
@@ -158,7 +158,7 @@ graph LR
     User([User])
     subgraph "Google Cloud"
         IAP[Identity Aware Proxy]
-        CR["Cloud Run\n(Creative Studio)"]
+        CR["Cloud Run (Creative Studio)"]
         FS[(Cloud Firestore)]
         GCS[(Cloud Storage)]
     end
@@ -382,7 +382,7 @@ graph LR
     subgraph "Google Cloud"
         LB[Load Balancer]
         IAP[Identity Aware Proxy]
-        CR["Cloud Run\n(Creative Studio)"]
+        CR["Cloud Run (Creative Studio)"]
         FS[(Cloud Firestore)]
         GCS[(Cloud Storage)]
     end
@@ -406,7 +406,7 @@ graph LR
     User([User])
     subgraph "Google Cloud"
         IAP[Identity Aware Proxy]
-        CR["Cloud Run\n(Creative Studio)"]
+        CR["Cloud Run (Creative Studio)"]
         FS[(Cloud Firestore)]
         GCS[(Cloud Storage)]
     end
