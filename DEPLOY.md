@@ -63,6 +63,9 @@ terraform init
 terraform apply
 ```
 
+If you intend to register multiple users, refer to [User Management](#userManagement) in this document.
+
+
 ### 2. Update DNS Records
 After `terraform apply` completes, it will output the **Load Balancer IP** (e.g., `34.xxx.xxx.xxx`).
 Create a **DNS A Record** for your domain pointing to this IP.
@@ -138,6 +141,8 @@ To update infrastructure (e.g., changed environment variables):
 git pull
 terraform apply
 ```
+
+<a id="userManagement"></a>
 
 ## User Management
 
@@ -246,6 +251,8 @@ terraform init
 terraform apply
 ```
 
+여러 사용자를 등록하려는 경우는 본 문서의 [사용자 관리](#사용자관리)를 참조하세요.
+
 ### 2. DNS 레코드 업데이트
 `terraform apply`가 완료되면 출력 결과에 **Load Balancer IP**가 표시됩니다.
 도메인 관리 사이트에서 해당 IP를 가리키는 **A 레코드**를 생성하세요.
@@ -324,13 +331,15 @@ git pull
 terraform apply
 ```
 
+<a id="사용자관리"></a>
+
 ## 사용자 관리 (User Management)
 
 Gearframe Creative Studio에 사용자를 추가하는 절차입니다.
 
 ### 시나리오 A: 같은 도메인 사용자 추가 (Internal)
 
-**사용 사례:** 같은 회사(`@yourcompany.com`) 사용자이며 프로젝트가 **내부(Internal)**로 설정된 경우.
+**사용 사례:** 같은 회사(`@yourcompany.com`) 사용자이며 프로젝트가 **내부(Internal)** 로 설정된 경우.
 
 1.  **`terraform.tfvars` 업데이트**: `initial_users` 목록에 이메일을 추가합니다.
     ```hcl
@@ -343,11 +352,11 @@ Gearframe Creative Studio에 사용자를 추가하는 절차입니다.
 
 ### 시나리오 B: 다른 도메인 사용자 추가 (External)
 
-**사용 사례:** `@gmail.com` 등 외부 사용자이며 프로젝트가 **외부(External)**로 설정된 경우.
+**사용 사례:** `@gmail.com` 등 외부 사용자이며 프로젝트가 **외부(External)** 로 설정된 경우.
 
 1.  **테스트 사용자 추가**:
-    *   **[API 및 서비스 > OAuth 동의 화면](https://console.cloud.google.com/apis/credentials/consent)**으로 이동합니다.
-    *   **Test users** 아래 **+ ADD USERS**를 클릭하여 이메일을 추가합니다.
+    *   **[API 및 서비스 > OAuth 동의 화면](https://console.cloud.google.com/apis/credentials/consent)** 으로 이동합니다.
+    *   **Test users** 아래 **+ ADD USERS** 를 클릭하여 이메일을 추가합니다.
 2.  **IAP 권한 부여**: 시나리오 A와 동일하게 `terraform.tfvars` 업데이트 후 `terraform apply`를 실행합니다.
 
 ### 🚨 문제 해결: "Error Code 11"
@@ -357,10 +366,10 @@ Gearframe Creative Studio에 사용자를 추가하는 절차입니다.
 **해결 방법**: 새로운 External용 OAuth 클라이언트를 생성해야 합니다.
 
 1.  **새 클라이언트 생성**:
-    *   **[API 및 서비스 > 사용자 인증 정보](https://console.cloud.google.com/apis/credentials)**로 이동합니다.
+    *   **[API 및 서비스 > 사용자 인증 정보](https://console.cloud.google.com/apis/credentials)** 로 이동합니다.
     *   **OAuth 클라이언트 ID** > **웹 애플리케이션**을 생성합니다.
     *   승인된 리디렉션 URI에 추가: `https://iap.googleapis.com/v1/oauth/clientIds/[새_클라이언트_ID]:handleRedirect`
 2.  **IAP 설정 업데이트**:
-    *   **[보안 > IAP](https://console.cloud.google.com/security/iap)**로 이동합니다.
+    *   **[보안 > IAP](https://console.cloud.google.com/security/iap)** 로 이동합니다.
     *   리소스 선택 > **연필 아이콘** 클릭 > **다른 OAuth 클라이언트 사용**.
     *   새 ID와 Secret 입력.
