@@ -70,3 +70,4 @@ server.log
 uv.lock
 .terraform.lock.hcl
 *.swp
+.cors-config.json
