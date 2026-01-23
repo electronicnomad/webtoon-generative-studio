@@ -4,7 +4,7 @@
 
 # Developer's Guide
 
-Welcome to the Gnomeregan Binary Studio application! This guide provides an overview of the application's architecture, key development patterns, and a step-by-step tutorial for adding new pages. Its purpose is to help you understand the project's structure and contribute effectively.
+Welcome to the Gearframe Creative Studio application! This guide provides an overview of the application's architecture, key development patterns, and a step-by-step tutorial for adding new pages. Its purpose is to help you understand the project's structure and contribute effectively.
 
 ## Application Architecture
 
@@ -245,7 +245,7 @@ def my_new_page_content():
 
 @me.page(
     path="/my_new_page",
-    title="My New Page - Gnomeregan Binary Studio",
+    title="My New Page - Gearframe Creative Studio",
 )
 def page():
     with page_scaffold(page_name="my_new_page"):
@@ -280,7 +280,7 @@ Add your new page to `config/navigation.json` to make it accessible in the UI.
 
 # 개발자 가이드 (Developer's Guide)
 
-Gnomeregan Binary Studio 애플리케이션에 오신 것을 환영합니다! 이 가이드는 애플리케이션의 아키텍처, 주요 개발 패턴, 새로운 페이지를 추가하기 위한 단계별 튜토리얼을 제공합니다. 이 프로젝트의 구조를 이해하고 효과적으로 기여할 수 있도록 돕기 위해 작성되었습니다.
+Gearframe Creative Studio 애플리케이션에 오신 것을 환영합니다! 이 가이드는 애플리케이션의 아키텍처, 주요 개발 패턴, 새로운 페이지를 추가하기 위한 단계별 튜토리얼을 제공합니다. 이 프로젝트의 구조를 이해하고 효과적으로 기여할 수 있도록 돕기 위해 작성되었습니다.
 
 ## 애플리케이션 아키텍처
 
@@ -521,7 +521,7 @@ def my_new_page_content():
 
 @me.page(
     path="/my_new_page",
-    title="내 새 페이지 - Gnomeregan Binary Studio",
+    title="내 새 페이지 - Gearframe Creative Studio",
 )
 def page():
     with page_scaffold(page_name="my_new_page"):

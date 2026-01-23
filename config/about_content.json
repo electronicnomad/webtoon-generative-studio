@@ -1,7 +1,7 @@
 {
   "header": {
-    "title": "About Gnomeregan Binary Studio",
-    "introduction": "Welcome to Gnomeregan Binary Studio, an application showcasing Google Cloud's Vertex AI Generative Media models. This tool is designed to provide a hands-on experience with our full complement of generative AI APIs for image, video, speech, and music generation.\n\nGnomeregan Binary Studio is available on https://github.com/electronicnomad/gnomeregan-binary-studio for you to install, customize and make your own generative AI magic. Gnomeregan Binary Studio based on Google Cloud's Vertex AI Creative Studio github repo: https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio"
+    "title": "About Gearframe Creative Studio",
+    "introduction": "Welcome to Gearframe Creative Studio, an application showcasing Google Cloud's Vertex AI Generative Media models. This tool is designed to provide a hands-on experience with our full complement of generative AI APIs for image, video, speech, and music generation.\n\nGearframe Creative Studio is available on https://github.com/electronicnomad/gearframe-creative-studio for you to install, customize and make your own generative AI magic. Gearframe Creative Studio based on Google Cloud's Vertex AI Creative Studio github repo: https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio"
   },
   "sections": [
     {

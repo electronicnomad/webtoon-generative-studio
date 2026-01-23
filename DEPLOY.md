@@ -4,7 +4,7 @@
 
 # Deployment & Resources Guide
 
-This document provides detailed information about the deployment process for Gnomeregan Binary Studio and the Google Cloud resources provisioned via Terraform.
+This document provides detailed information about the deployment process for Gearframe Creative Studio and the Google Cloud resources provisioned via Terraform.
 
 ## 1. Deployment Architecture Overview
 
@@ -108,7 +108,7 @@ Command: `./build.sh`
 
 ## 4. User Management
 
-This section details the procedures for adding users to Gnomeregan Binary Studio, covering two main scenarios.
+This section details the procedures for adding users to Gearframe Creative Studio, covering two main scenarios.
 
 ### Scenario A: Adding Users from the Same Domain (Internal)
 
@@ -162,7 +162,7 @@ If external users see **"Error Code 11"** after login, it means your **OAuth Cli
 
 # 배포 및 리소스 가이드 (Deployment & Resources Guide)
 
-이 문서는 Gnomeregan Binary Studio의 배포 프로세스와 Terraform을 통해 프로비저닝되는 Google Cloud 리소스에 대한 상세 정보를 제공합니다.
+이 문서는 Gearframe Creative Studio의 배포 프로세스와 Terraform을 통해 프로비저닝되는 Google Cloud 리소스에 대한 상세 정보를 제공합니다.
 
 ## 1. 배포 아키텍처 개요
 
@@ -266,7 +266,7 @@ If external users see **"Error Code 11"** after login, it means your **OAuth Cli
 
 ## 4. 사용자 관리 (User Management)
 
-이 섹션은 Gnomeregan Binary Studio에 사용자를 추가하는 절차를 설명합니다.
+이 섹션은 Gearframe Creative Studio에 사용자를 추가하는 절차를 설명합니다.
 
 ### 시나리오 A: 같은 도메인 사용자 추가 (Internal)
 

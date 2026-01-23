@@ -4,7 +4,7 @@
 
 # Running Tests
 
-This directory contains the automated tests for the Gnomeregan Binary Studio application.
+This directory contains the automated tests for the Gearframe Creative Studio application.
 
 ## Running All Tests
 
@@ -67,7 +67,7 @@ These scripts can be run directly from the command line and are useful for quick
 
 # 테스트 실행
 
-이 디렉토리에는 Gnomeregan Binary Studio 애플리케이션에 대한 자동화된 테스트가 포함되어 있습니다.
+이 디렉토리에는 Gearframe Creative Studio 애플리케이션에 대한 자동화된 테스트가 포함되어 있습니다.
 
 ## 모든 테스트 실행
 

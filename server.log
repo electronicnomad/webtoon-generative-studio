@@ -4,7 +4,7 @@ Initiating Gemini client for project myredrabbit in us-central1
 DEBUG: Loading video_processing.py at 2026-01-15 11:51:49.482209. Moviepy version: 2.1.2
 Initiating Gemini client for project myredrabbit in us-central1
 DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
-INFO:     Will watch for changes in these directories: ['/Users/kwanghoon/Workspace/gnomeregan-01-studio']
+INFO:     Will watch for changes in these directories: ['/Users/kwanghoon/Workspace/creative-studio']
 INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
 WARNING:  --reload-include and --reload-exclude have no effect unless watchfiles is installed.
 INFO:     Started reloader process [62513] using StatReload
@@ -17,7 +17,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [62537]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:59263 - "GET /cartoon HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59314 - "GET /cartoon HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59314 - "GET /styles.css HTTP/1.1" 304 Not Modified
@@ -44,7 +44,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [62666]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:59396 - "GET /cartoon HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59396 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:59397 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -103,7 +103,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [62826]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:59689 - "GET /cartoon HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59689 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:59690 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -194,9 +194,9 @@ INFO:     127.0.0.1:59970 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: cartoon
 {"timestamp": "2026-01-15 11:56:55,560", "level": "INFO", "message": "Page view: cartoon", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "cartoon", "session_id": ""}
 INFO:genmedia.analytics:Page view: cartoon
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   return query.where(field_path, op_string, value)
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   query = query.where("mime_type", ">=", "image/").where(
 {"timestamp": "2026-01-15 11:56:56,347", "level": "ERROR", "message": "Error fetching media from Firestore (optimized): 404 The database (default) does not exist for project myredrabbit Please visit https://console.cloud.google.com/datastore/setup?project=myredrabbit to add a Cloud Datastore or Cloud Firestore database. ", "name": "common.metadata"}
 ERROR:common.metadata:Error fetching media from Firestore (optimized): 404 The database (default) does not exist for project myredrabbit Please visit https://console.cloud.google.com/datastore/setup?project=myredrabbit to add a Cloud Datastore or Cloud Firestore database. 
@@ -479,9 +479,9 @@ INFO:     127.0.0.1:56318 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: cartoon
 {"timestamp": "2026-01-15 15:12:37,588", "level": "INFO", "message": "Page view: cartoon", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "cartoon", "session_id": ""}
 INFO:genmedia.analytics:Page view: cartoon
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   return query.where(field_path, op_string, value)
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   query = query.where("mime_type", ">=", "image/").where(
 {"timestamp": "2026-01-15 15:12:37,837", "level": "ERROR", "message": "Error fetching media from Firestore (optimized): 400 The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/myredrabbit/firestore/indexes?create_composite=Ckxwcm9qZWN0cy9teXJlZHJhYmJpdC9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvZ2VubWVkaWEvaW5kZXhlcy9fEAEaDQoJdGltZXN0YW1wEAIaDQoJbWltZV90eXBlEAIaDAoIX19uYW1lX18QAg .\nThe query contains range and inequality filters on multiple fields, please refer to the documentation for index selection best practices: https://cloud.google.com/firestore/docs/query-data/multiple-range-fields.", "name": "common.metadata"}
 ERROR:common.metadata:Error fetching media from Firestore (optimized): 400 The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/myredrabbit/firestore/indexes?create_composite=Ckxwcm9qZWN0cy9teXJlZHJhYmJpdC9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvZ2VubWVkaWEvaW5kZXhlcy9fEAEaDQoJdGltZXN0YW1wEAIaDQoJbWltZV90eXBlEAIaDAoIX19uYW1lX18QAg .
@@ -1004,7 +1004,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [80276]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:58972 - "GET /cartoon HTTP/1.1" 200 OK
 INFO:     127.0.0.1:58972 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:58973 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -1115,7 +1115,7 @@ INFO:genmedia.analytics:Page view: lyria
 {"timestamp": "2026-01-15 15:58:56,979", "level": "INFO", "message": "Page view: lyria", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "lyria", "session_id": ""}
 INFO:     127.0.0.1:59090 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: lyria
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   return query.where(field_path, op_string, value)
 {"timestamp": "2026-01-15 15:58:58,311", "level": "INFO", "message": "Page view: gemini-writers-workshop", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "gemini-writers-workshop", "session_id": ""}
 INFO:genmedia.analytics:Page view: gemini-writers-workshop
@@ -1165,7 +1165,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [80588]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:59227 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59227 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:59228 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -1180,23 +1180,23 @@ INFO:     127.0.0.1:59230 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: home
 ERROR:mesop.server.server:Exception on /config/navigation.json [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -1206,9 +1206,9 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/config/navigation.json'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/config/navigation.json'
 INFO:     127.0.0.1:59838 - "GET /config/navigation.json HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:60029 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:60029 - "GET /styles.css HTTP/1.1" 304 Not Modified
@@ -1281,7 +1281,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [82300]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:60251 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:60251 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:60252 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -1516,7 +1516,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [87848]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:63865 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:63865 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:63866 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -1719,7 +1719,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [94556]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:57362 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:57362 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:57363 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -1899,9 +1899,9 @@ INFO:     127.0.0.1:59680 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: gemini_image_generation
 {"timestamp": "2026-01-16 09:43:22,453", "level": "INFO", "message": "Page view: gemini_image_generation", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "gemini_image_generation", "session_id": ""}
 INFO:genmedia.analytics:Page view: gemini_image_generation
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   return query.where(field_path, op_string, value)
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/common/metadata.py:581: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   query = query.where("mime_type", ">=", "image/").where(
 {"timestamp": "2026-01-16 09:43:23,397", "level": "ERROR", "message": "Error fetching media from Firestore (optimized): 400 The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/myredrabbit/firestore/indexes?create_composite=Ckxwcm9qZWN0cy9teXJlZHJhYmJpdC9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvZ2VubWVkaWEvaW5kZXhlcy9fEAEaDQoJdGltZXN0YW1wEAIaDQoJbWltZV90eXBlEAIaDAoIX19uYW1lX18QAg .\nThe query contains range and inequality filters on multiple fields, please refer to the documentation for index selection best practices: https://cloud.google.com/firestore/docs/query-data/multiple-range-fields.", "name": "common.metadata"}
 ERROR:common.metadata:Error fetching media from Firestore (optimized): 400 The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/myredrabbit/firestore/indexes?create_composite=Ckxwcm9qZWN0cy9teXJlZHJhYmJpdC9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvZ2VubWVkaWEvaW5kZXhlcy9fEAEaDQoJdGltZXN0YW1wEAIaDQoJbWltZV90eXBlEAIaDAoIX19uYW1lX18QAg .
@@ -2073,7 +2073,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [99633]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:60771 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:60771 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:60772 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -2153,7 +2153,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [111]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:60983 - "GET /welcome HTTP/1.1" 200 OK
 INFO:     127.0.0.1:60984 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:60983 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -2632,7 +2632,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [2005]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:62090 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:62090 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:62091 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -2836,17 +2836,17 @@ Traceback (most recent call last):
   File "<frozen runpy>", line 287, in run_path
   File "<frozen runpy>", line 98, in _run_module_code
   File "<frozen runpy>", line 88, in _run_code
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/main.py", line 33, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/main.py", line 33, in <module>
     import pages.shop_the_look
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/pages/shop_the_look.py", line 26, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/pages/shop_the_look.py", line 26, in <module>
     from components.shop_the_look.results_display import results_display
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/components/shop_the_look/results_display.py", line 20, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/components/shop_the_look/results_display.py", line 20, in <module>
     from models.shop_the_look_handlers import on_click_veo, on_click_vto_look
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/models/shop_the_look_handlers.py", line 30, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/models/shop_the_look_handlers.py", line 30, in <module>
     from models.gemini import (
     ...<3 lines>...
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/models/gemini.py", line 122
+  File "/Users/kwanghoon/Workspace/creative-studio/models/gemini.py", line 122
     ) -> tuple[list[str], float, list[str], Optional[Dict[str, Any]]]:
     ^
 SyntaxError: unmatched ')'
@@ -2872,9 +2872,9 @@ Traceback (most recent call last):
   File "<frozen runpy>", line 287, in run_path
   File "<frozen runpy>", line 98, in _run_module_code
   File "<frozen runpy>", line 88, in _run_code
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/main.py", line 80, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/main.py", line 80, in <module>
     import pages.storyboard
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/pages/storyboard.py", line 4, in <module>
+  File "/Users/kwanghoon/Workspace/creative-studio/pages/storyboard.py", line 4, in <module>
     from components.page_frame import page_frame
 ModuleNotFoundError: No module named 'components.page_frame'
 [FirebaseClient] - initiating firebase client with `(default)`
@@ -2891,10 +2891,10 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [5954]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:63940 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:63940 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:64601 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -2929,7 +2929,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [6095]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:64779 - "GET /storyboard HTTP/1.1" 200 OK
 INFO:     127.0.0.1:64779 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:64780 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -3088,7 +3088,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [6416]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:64929 - "GET /storyboard HTTP/1.1" 200 OK
 INFO:     127.0.0.1:64929 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:64932 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -3533,10 +3533,26 @@ Downloaded gs://myredrabbit-assets/videos/15261948779617611200/sample_0.mp4 to /
 Downloaded gs://myredrabbit-assets/videos/16572965562036633913/sample_0.mp4 to /var/folders/0z/v1pkrblx42dd1y1jw8dvvbwr00vycc/T/tmpccw37_zi/3_sample_0.mp4
 MoviePy - Building video /var/folders/0z/v1pkrblx42dd1y1jw8dvvbwr00vycc/T/tmpccw37_zi/processed_44fe91f6-3afd-4ab1-949a-bd42d88205ec.mp4.
 MoviePy - Writing audio in processed_44fe91f6-3afd-4ab1-949a-bd42d88205ecTEMP_MPY_wvf_snd.mp3
-chunk:   0%|          | 0/353 [00:00<?, ?it/s, now=None]chunk:  95%|█████████▌| 336/353 [00:00<00:00, 3357.15it/s, now=None]                                                                    MoviePy - Done.
+
+chunk:   0%|          | 0/353 [00:00<?, ?it/s, now=None]
+chunk:  95%|█████████▌| 336/353 [00:00<00:00, 3357.15it/s, now=None]
+                                                                    
+MoviePy - Done.
 MoviePy - Writing video /var/folders/0z/v1pkrblx42dd1y1jw8dvvbwr00vycc/T/tmpccw37_zi/processed_44fe91f6-3afd-4ab1-949a-bd42d88205ec.mp4
 
-frame_index:   0%|          | 0/384 [00:00<?, ?it/s, now=None]frame_index:  15%|█▍        | 56/384 [00:00<00:00, 557.47it/s, now=None]frame_index:  29%|██▉       | 112/384 [00:00<00:00, 335.27it/s, now=None]frame_index:  39%|███▉      | 151/384 [00:00<00:00, 304.76it/s, now=None]frame_index:  49%|████▉     | 189/384 [00:00<00:00, 324.76it/s, now=None]frame_index:  58%|█████▊    | 224/384 [00:00<00:00, 301.68it/s, now=None]frame_index:  67%|██████▋   | 256/384 [00:00<00:00, 290.04it/s, now=None]frame_index:  78%|███████▊  | 300/384 [00:00<00:00, 330.15it/s, now=None]frame_index:  87%|████████▋ | 335/384 [00:01<00:00, 297.41it/s, now=None]frame_index:  96%|█████████▌| 368/384 [00:01<00:00, 301.99it/s, now=None]                                                                         {"timestamp": "2026-01-16 11:13:17,376", "level": "INFO", "message": "Successfully updated MediaItem in Firestore with ID: 591074b3-0d85-4c0a-8745-cf63b53a3af7", "name": "common.metadata"}
+
+frame_index:   0%|          | 0/384 [00:00<?, ?it/s, now=None]
+frame_index:  15%|█▍        | 56/384 [00:00<00:00, 557.47it/s, now=None]
+frame_index:  29%|██▉       | 112/384 [00:00<00:00, 335.27it/s, now=None]
+frame_index:  39%|███▉      | 151/384 [00:00<00:00, 304.76it/s, now=None]
+frame_index:  49%|████▉     | 189/384 [00:00<00:00, 324.76it/s, now=None]
+frame_index:  58%|█████▊    | 224/384 [00:00<00:00, 301.68it/s, now=None]
+frame_index:  67%|██████▋   | 256/384 [00:00<00:00, 290.04it/s, now=None]
+frame_index:  78%|███████▊  | 300/384 [00:00<00:00, 330.15it/s, now=None]
+frame_index:  87%|████████▋ | 335/384 [00:01<00:00, 297.41it/s, now=None]
+frame_index:  96%|█████████▌| 368/384 [00:01<00:00, 301.99it/s, now=None]
+                                                                         
+{"timestamp": "2026-01-16 11:13:17,376", "level": "INFO", "message": "Successfully updated MediaItem in Firestore with ID: 591074b3-0d85-4c0a-8745-cf63b53a3af7", "name": "common.metadata"}
 INFO:common.metadata:Successfully updated MediaItem in Firestore with ID: 591074b3-0d85-4c0a-8745-cf63b53a3af7
 {"timestamp": "2026-01-16 11:13:17,376", "level": "INFO", "message": "Page view: storyboarder", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "storyboarder", "session_id": ""}
 INFO:genmedia.analytics:Page view: storyboarder
@@ -3794,7 +3810,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [8986]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:50020 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50020 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:50021 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -3905,7 +3921,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [14082]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 ERROR:root:**User Error:** Accessed path: /storyboarder_text not registered
 
 Try one of the following paths:
@@ -4080,7 +4096,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [14324]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:54438 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:54438 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:54439 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -4248,7 +4264,7 @@ INFO:genmedia.analytics:Page view: lyria
 INFO:     127.0.0.1:54694 - "POST /__ui__ HTTP/1.1" 200 OK
 {"timestamp": "2026-01-16 12:42:31,527", "level": "INFO", "message": "Page view: lyria", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "lyria", "session_id": ""}
 INFO:genmedia.analytics:Page view: lyria
-/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/google/cloud/firestore_v1/base_collection.py:315: UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
   return query.where(field_path, op_string, value)
 {"timestamp": "2026-01-16 12:42:32,219", "level": "INFO", "message": "Page view: gemini-writers-workshop", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "gemini-writers-workshop", "session_id": ""}
 INFO:genmedia.analytics:Page view: gemini-writers-workshop
@@ -4302,23 +4318,23 @@ INFO:genmedia.analytics:Page view: about
 INFO:genmedia.analytics:Page view: about
 ERROR:mesop.server.server:Exception on /assets/about/lyria_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4328,28 +4344,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/vto_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4359,28 +4375,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/recontextualize_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4390,9 +4406,9 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
 INFO:     127.0.0.1:54702 - "GET /assets/about/lyria_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:54705 - "GET /assets/about/vto_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:54706 - "GET /assets/about/recontextualize_demo.png HTTP/1.1" 500 Internal Server Error
@@ -4403,23 +4419,23 @@ INFO:genmedia.analytics:Page view: about
 INFO:genmedia.analytics:Page view: home
 ERROR:mesop.server.server:Exception on /assets/about/lyria_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4429,28 +4445,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/recontextualize_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4460,28 +4476,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/vto_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -4491,9 +4507,9 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
 Navigating to: /home
 INFO:     127.0.0.1:54727 - "GET /assets/about/lyria_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:54731 - "GET /assets/about/recontextualize_demo.png HTTP/1.1" 500 Internal Server Error
@@ -4578,7 +4594,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [16837]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 {"timestamp": "2026-01-16 12:45:55,320", "level": "INFO", "message": "Page view: home", "name": "genmedia.analytics", "event_type": "page_view", "page_name": "home", "session_id": ""}
 INFO:genmedia.analytics:Page view: home
 INFO:     127.0.0.1:54936 - "POST /__ui__ HTTP/1.1" 200 OK
@@ -4638,7 +4654,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [16967]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:55029 - "GET /storyboarder HTTP/1.1" 200 OK
 INFO:     127.0.0.1:55029 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:55030 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -4902,7 +4918,7 @@ DEBUG: retro_games loaded. PROJECT_ID=myredrabbit
 INFO:     Started server process [17666]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/gnomeregan-01-studio/static
+INFO:mesop.server.server:Static folder enabled: /Users/kwanghoon/Workspace/creative-studio/static
 INFO:     127.0.0.1:55530 - "GET /home HTTP/1.1" 200 OK
 INFO:     127.0.0.1:55530 - "GET /styles.css HTTP/1.1" 304 Not Modified
 INFO:     127.0.0.1:55531 - "GET /zone.js/bundles/zone.umd.js HTTP/1.1" 304 Not Modified
@@ -5012,23 +5028,23 @@ INFO:genmedia.analytics:Page view: about
 INFO:genmedia.analytics:Page view: about
 ERROR:mesop.server.server:Exception on /assets/about/lyria_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5038,28 +5054,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/vto_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5069,28 +5085,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/recontextualize_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5100,9 +5116,9 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
 INFO:     127.0.0.1:64295 - "GET /assets/about/lyria_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:64296 - "GET /assets/about/vto_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:64297 - "GET /assets/about/recontextualize_demo.png HTTP/1.1" 500 Internal Server Error
@@ -5113,23 +5129,23 @@ INFO:     127.0.0.1:64302 - "POST /__ui__ HTTP/1.1" 200 OK
 INFO:genmedia.analytics:Page view: home
 ERROR:mesop.server.server:Exception on /assets/about/vto_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5139,28 +5155,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/vto_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/lyria_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5170,28 +5186,28 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/lyria_demo.png'
 ERROR:mesop.server.server:Exception on /assets/about/recontextualize_demo.png [GET]
 Traceback (most recent call last):
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 166, in serve_file
     return send_file_compressed(
       get_path(path),
       disable_gzip_cache=disable_gzip_cache,
     )
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/server/static_file_serving.py", line 396, in send_file_compressed
     response = send_file(path)
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/flask/helpers.py", line 518, in send_file
     return werkzeug.utils.send_file(  # type: ignore[return-value]
            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         **_prepare_send_file_kwargs(
@@ -5201,9 +5217,9 @@ Traceback (most recent call last):
         ^
     )
     ^
-  File "/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
+  File "/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/werkzeug/utils.py", line 421, in send_file
     stat = os.stat(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/gnomeregan-01-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kwanghoon/Workspace/creative-studio/.venv/lib/python3.13/site-packages/mesop/utils/../web/src/app/prod/web_package/assets/about/recontextualize_demo.png'
 INFO:     127.0.0.1:64307 - "GET /assets/about/vto_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:64306 - "GET /assets/about/lyria_demo.png HTTP/1.1" 500 Internal Server Error
 INFO:     127.0.0.1:64308 - "GET /assets/about/recontextualize_demo.png HTTP/1.1" 500 Internal Server Error

@@ -2,23 +2,23 @@
 
 <a id="english"></a>
 
-# Gnomeregan Binary Studio
+# Gearframe Creative Studio
 
 A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
 
 > ###### _This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security). This project is intended for demonstration purposes only. It is not intended for use in a production environment._
 
-![Gnomeregan Binary Studio v.next](./assets/welcome_screen.png)
+![Gearframe Creative Studio v.next](./assets/welcome_screen.png)
 
-![Gnomeregan Binary Studio v.next](./assets/home_screen.png)
+![Gearframe Creative Studio v.next](./assets/home_screen.png)
 
 ## Table of Contents
 
-- [Gnomeregan Binary Studio | Vertex AI](#gnomeregan-binary-studio--vertex-ai)
+- [Gearframe Creative Studio | Vertex AI](#gearframe-creative-studio--vertex-ai)
 - [Table of Contents](#table-of-contents)
-- [Gnomeregan Binary Studio](#gnomeregan-binary-studio)
-- [Deploying Gnomeregan Binary Studio](#deploying-gnomeregan-binary-studio)
-- [Updating Gnomeregan Binary Studio](#updating-gnomeregan-binary-studio)
+- [Gearframe Creative Studio](#gearframe-creative-studio)
+- [Deploying Gearframe Creative Studio](#deploying-gearframe-creative-studio)
+- [Updating Gearframe Creative Studio](#updating-gearframe-creative-studio)
   - [Updating Application Code](#updating-application-code)
   - [Updating Infrastructure](#updating-infrastructure)
 - [Adding Additional Users](#adding-additional-users)
@@ -31,17 +31,17 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [Setting up your development environment](#setting-up-your-development-environment)
     - [Python virtual environment](#python-virtual-environment)
     - [Application Environment variables](#application-environment-variables)
-  - [Gnomeregan Binary Studio - Developing](#gnomeregan-binary-studio---developing)
+  - [Gearframe Creative Studio - Developing](#gearframe-creative-studio---developing)
     - [Running](#running)
     - [Developing](#developing)
   - [Contributing changes](#contributing-changes)
   - [Licensing](#licensing)
 
-## Gnomeregan Binary Studio
+## Gearframe Creative Studio
 
 > **Browser Compatibility:** For the best experience, we recommend using Google Chrome. Some features may not work as expected on other browsers, such as Safari or Firefox.
 
-Gnomeregan Binary Studio is a web application showcasing Google Cloud's generative media - Veo, Lyria, Chirp, Gemini 2.5 Flash Image Generation (nano-banana), and Gemini TTS along with custom workflows and techniques for creative exploration and inspiration. We're looking forward to see what you create!
+Gearframe Creative Studio is a web application showcasing Google Cloud's generative media - Veo, Lyria, Chirp, Gemini 2.5 Flash Image Generation (nano-banana), and Gemini TTS along with custom workflows and techniques for creative exploration and inspiration. We're looking forward to see what you create!
 
 Current featureset
 
@@ -64,15 +64,15 @@ This repository uses **Google's Gemini CLI** to automate software engineering ta
 
 For detailed documentation on the agents and workflows, see [AGENTS.md](./AGENTS.md).
 
-## Deploying Gnomeregan Binary Studio
+## Deploying Gearframe Creative Studio
 
-Deployment of Gnomeregan Binary Studio is accomplished using a combination of Terraform and Cloud Build.
+Deployment of Gearframe Creative Studio is accomplished using a combination of Terraform and Cloud Build.
 
 For detailed, step-by-step instructions on deploying the application using either a Custom Domain or a Cloud Run Domain, please refer to the **[Deployment & Resources Guide](DEPLOY.md)**.
 
-## Updating Gnomeregan Binary Studio
+## Updating Gearframe Creative Studio
 
-As new features and fixes are added to Gnomeregan Binary Studio, you will want to update your deployment. You do **not** need to destroy your existing infrastructure.
+As new features and fixes are added to Gearframe Creative Studio, you will want to update your deployment. You do **not** need to destroy your existing infrastructure.
 
 ### Updating Application Code
 
@@ -214,7 +214,7 @@ Only one environment variable is required:
 
 - `PROJECT_ID` your Google Cloud Project ID, obtained via `gcloud config get project`
 
-## Gnomeregan Binary Studio - Developing
+## Gearframe Creative Studio - Developing
 
 ### Running
 
@@ -250,23 +250,23 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 
 <a id="korean"></a>
 
-# Gnomeregan Binary Studio
+# Gearframe Creative Studio
 
 A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
 
 > ###### _이 제품은 Google에서 공식적으로 지원하는 제품이 아닙니다. 이 프로젝트는 [Google 오픈소스 소프트웨어 취약점 보상 프로그램](https://bughunters.google.com/open-source-security)의 대상이 아닙니다. 이 프로젝트는 데모 목적으로만 제공됩니다. 프로덕션 환경에서의 사용을 목적으로 하지 않습니다._
 
-![Gnomeregan Binary Studio v.next](./assets/welcome_screen.png)
+![Gearframe Creative Studio v.next](./assets/welcome_screen.png)
 
-![Gnomeregan Binary Studio v.next](./assets/home_screen.png)
+![Gearframe Creative Studio v.next](./assets/home_screen.png)
 
 ## 목차
 
-- [Gnomeregan Binary Studio | Vertex AI](#gnomeregan-binary-studio--vertex-ai)
+- [Gearframe Creative Studio | Vertex AI](#gearframe-creative-studio--vertex-ai)
 - [목차](#목차)
-- [Gnomeregan Binary Studio](#gnomeregan-binary-studio-1)
-- [Gnomeregan Binary Studio 배포하기](#gnomeregan-binary-studio-배포하기)
-- [Gnomeregan Binary Studio 업데이트](#gnomeregan-binary-studio-업데이트)
+- [Gearframe Creative Studio](#gearframe-creative-studio-1)
+- [Gearframe Creative Studio 배포하기](#gearframe-creative-studio-배포하기)
+- [Gearframe Creative Studio 업데이트](#gearframe-creative-studio-업데이트)
   - [애플리케이션 코드 업데이트](#애플리케이션-코드-업데이트)
   - [인프라 업데이트](#인프라-업데이트)
 - [추가 사용자 추가](#추가-사용자-추가)
@@ -279,17 +279,17 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [개발 환경 설정](#개발-환경-설정)
     - [Python 가상 환경](#python-가상-환경)
     - [애플리케이션 환경 변수](#애플리케이션-환경-변수)
-  - [Gnomeregan Binary Studio - 개발](#gnomeregan-binary-studio---개발)
+  - [Gearframe Creative Studio - 개발](#gearframe-creative-studio---개발)
     - [실행](#실행)
     - [개발](#개발-1)
   - [변경 사항 기여](#변경-사항-기여)
   - [라이선스](#라이선스)
 
-## Gnomeregan Binary Studio
+## Gearframe Creative Studio
 
 > **브라우저 호환성:** 최상의 경험을 위해 Google Chrome을 사용하는 것을 권장합니다. Safari나 Firefox와 같은 다른 브라우저에서는 일부 기능이 예상대로 작동하지 않을 수 있습니다.
 
-Gnomeregan Binary Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chirp, Gemini 2.5 Flash 이미지 생성(nano-banana), Gemini TTS)와 창의적 탐색 및 영감을 위한 맞춤형 워크플로 및 기술을 보여주는 웹 애플리케이션입니다. 여러분이 무엇을 만들어낼지 기대됩니다!
+Gearframe Creative Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chirp, Gemini 2.5 Flash 이미지 생성(nano-banana), Gemini TTS)와 창의적 탐색 및 영감을 위한 맞춤형 워크플로 및 기술을 보여주는 웹 애플리케이션입니다. 여러분이 무엇을 만들어낼지 기대됩니다!
 
 현재 기능 세트:
 
@@ -312,15 +312,15 @@ Gnomeregan Binary Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chir
 
 에이전트 및 워크플로에 대한 자세한 문서는 [AGENTS.md](./AGENTS.md)를 참조하세요.
 
-## Gnomeregan Binary Studio 배포하기
+## Gearframe Creative Studio 배포하기
 
-Gnomeregan Binary Studio의 배포는 Terraform과 Cloud Build의 조합을 사용하여 수행됩니다.
+Gearframe Creative Studio의 배포는 Terraform과 Cloud Build의 조합을 사용하여 수행됩니다.
 
 사용자 지정 도메인 또는 Cloud Run 도메인을 사용하여 애플리케이션을 배포하는 방법에 대한 자세한 단계별 지침은 **[배포 및 리소스 가이드 (DEPLOY.md)](DEPLOY.md)**를 참조하세요.
 
-## Gnomeregan Binary Studio 업데이트
+## Gearframe Creative Studio 업데이트
 
-Gnomeregan Binary Studio에 새로운 기능과 수정 사항이 추가됨에 따라 배포를 업데이트하고 싶을 것입니다. 기존 인프라를 삭제할 필요는 **없습니다**.
+Gearframe Creative Studio에 새로운 기능과 수정 사항이 추가됨에 따라 배포를 업데이트하고 싶을 것입니다. 기존 인프라를 삭제할 필요는 **없습니다**.
 
 ### 애플리케이션 코드 업데이트
 
@@ -462,7 +462,7 @@ uv sync
 
 - `PROJECT_ID`: 귀하의 Google Cloud 프로젝트 ID (`gcloud config get project`를 통해 확인 가능)
 
-## Gnomeregan Binary Studio - 개발
+## Gearframe Creative Studio - 개발
 
 ### 실행
 
