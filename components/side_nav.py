@@ -98,7 +98,7 @@ def sidenav(current_page: Optional[str]):
                             me.icon(icon="menu")
                 if app_state.sidenav_open:
                     with me.box(on_click=on_click_title, style=me.Style(cursor="pointer")):
-                        me.text("GENMEDIA STUDIO", style=_FANCY_TEXT_GRADIENT)
+                        me.text("GNOMEREGAN 01 STUDIO", style=_FANCY_TEXT_GRADIENT)
             
             me.box(style=me.Style(height=16)) # spacer
 

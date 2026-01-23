@@ -87,7 +87,7 @@ Command: `terraform apply`
 2.  Required service accounts are created and permissions (IAM) are granted.
 3.  Network resources (LB, IAP, etc.) are configured.
 4.  Database (Firestore) and Storage (GCS) are created.
-5.  Cloud Run service is created with a _Placeholder_ image. (Actual app code is not deployed yet)
+5.  Cloud Run service is created with a _Placeholder} 이미지로 생성됩니다. (Actual app code is not deployed yet)
 
 ### Step 3: Application Build & Deployment (Build Script)
 
@@ -105,6 +105,56 @@ Command: `./build.sh`
 
 - **Custom Domain**: Access via the configured domain after DNS setup is complete and SSL certificate is issued (may take up to 60 minutes).
 - **Cloud Run Domain**: Access via the URL shown in Terraform output (`cloud-run-app-url`). The initial users must log in with their Google account via IAP.
+
+## 4. User Management
+
+This section details the procedures for adding users to Gnomeregan Binary Studio, covering two main scenarios.
+
+### Scenario A: Adding Users from the Same Domain (Internal)
+
+**Use Case:** You and the new users are in the same Google Cloud Organization (e.g., both have `@yourcompany.com` emails), and your project's OAuth Consent Screen is set to **Internal**.
+
+1.  **Update Terraform Configuration:**
+    Open your `terraform.tfvars` file and add the new email addresses to the `initial_users` list.
+
+2.  **Apply Changes:**
+    Run `terraform apply` to update the IAP permissions.
+
+_Alternatively, you can manually add the user in the Google Cloud Console > Security > Identity-Aware Proxy > Select Resource > Add Principal > Role: `IAP-secured Web App User`._
+
+### Scenario B: Adding Users from Different Domains (External)
+
+**Use Case:** You are inviting users with personal emails (`@gmail.com`) or from different organizations, and your project's User Type is set to **External**.
+
+1.  **Add to Test Users (Oauth Consent Screen):**
+    **Critical:** Since your app is likely in "Testing" mode, you **must** manually allow each user.
+    - Go to **[APIs & Services > OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)**.
+    - Under **Test users**, click **+ ADD USERS**.
+    - Enter the email address and click **Save**.
+
+2.  **Grant IAP Permissions:**
+    Just like Scenario A, you must give them permission to pass the IAP gate by updating `initial_users` in `terraform.tfvars` and running `terraform apply`.
+
+### 🚨 Troubleshooting: "Error Code 11"
+
+If external users see **"Error Code 11"** after login, it means your **OAuth Client ID** is mismatched (stuck in Internal mode).
+
+**The Fix:** You must manually create a new "External" OAuth Client and assign it to IAP.
+
+1.  **Create a New Client:**
+    - Go to **[APIs & Services > Credentials](https://console.cloud.google.com/apis/credentials)**.
+    - Click **+ CREATE CREDENTIALS > OAuth client ID**.
+    - Select **Web application**. Name it `IAP External Client`.
+    - **(Crucial)** In **Authorized redirect URIs**, add this exact URL format:
+      `https://iap.googleapis.com/v1/oauth/clientIds/[NEW_CLIENT_ID]:handleRedirect`
+    - Click **Save**.
+
+2.  **Force IAP to Use New Client:**
+    - Go to **[Security > Identity-Aware Proxy](https://console.cloud.google.com/security/iap)**.
+    - Locate your backend resource (e.g., `creative-studio`).
+    - Click the **pencil icon (✎)** on that row.
+    - Select **"Use a different OAuth client"**.
+    - Enter your **New Client ID** and **Secret** and Save.
 
 ---
 
@@ -159,7 +209,7 @@ Command: `./build.sh`
   - 생성된 이미지, 비디오, 오디오 자산 저장
   - CORS 설정: 로컬 개발 환경 및 배포된 도메인 허용
   - 권한: Cloud Run 서비스 계정에 읽기/쓰기 권한 부여
-- **Firestore Database**: `create-studio-asset-metadata` (`create-studio-asset-metadata` DB)
+- **Firestore Database**: `create-studio-asset-metadata`
   - 생성된 미디어의 메타데이터 저장
   - **Indexes**: 타임스탬프, 미디어 타입, 사용자 이메일 기반의 복합 인덱스 자동 생성
 - **Artifact Registry**: `creative-studio`
@@ -213,3 +263,39 @@ Command: `./build.sh`
 
 - **사용자 지정 도메인**: DNS 설정이 완료되고 SSL 인증서가 발급(최대 60분 소요)된 후 설정한 도메인으로 접속합니다.
 - **Cloud Run 도메인**: Terraform 출력(`cloud-run-app-url`)에 표시된 URL로 접속합니다. 초기 사용자들은 IAP를 통해 Google 계정으로 로그인해야 합니다.
+
+## 4. 사용자 관리 (User Management)
+
+이 섹션은 Gnomeregan Binary Studio에 사용자를 추가하는 절차를 설명합니다.
+
+### 시나리오 A: 같은 도메인 사용자 추가 (Internal)
+
+**사용 사례:** 귀하와 새 사용자가 같은 Google Cloud 조직에 속해 있고, 프로젝트의 OAuth 동의 화면이 **내부(Internal)**로 설정된 경우입니다.
+
+1.  **Terraform 구성 업데이트:** `terraform.tfvars` 파일의 `initial_users` 목록에 새 이메일 주소를 추가합니다.
+2.  **변경 사항 적용:** `terraform apply`를 실행하여 IAP 권한을 업데이트합니다.
+
+_대안으로, Google Cloud Console > 보안 > Identity-Aware Proxy에서 수동으로 역할을 부여할 수도 있습니다._
+
+### 시나리오 B: 다른 도메인 사용자 추가 (External)
+
+**사용 사례:** 개인 이메일(`@gmail.com`)이나 다른 조직의 사용자를 초대하며, 프로젝트의 사용자 유형이 **외부(External)**로 설정된 경우입니다.
+
+1.  **테스트 사용자 추가 (OAuth 동의 화면):**
+    **중요:** 앱이 "테스트" 상태인 경우, 각 사용자를 수동으로 허용해야 합니다.
+    - **[API 및 서비스 > OAuth 동의 화면](https://console.cloud.google.com/apis/credentials/consent)**에서 **+ ADD USERS**를 클릭하여 이메일을 추가합니다.
+
+2.  **IAP 권한 부여:** 시나리오 A와 마찬가지로 `terraform.tfvars`를 업데이트하고 `terraform apply`를 실행합니다.
+
+### 🚨 문제 해결: "Error Code 11"
+
+외부 사용자가 로그인 후 **"Error Code 11"** 오류를 겪는다면 **OAuth 클라이언트 ID** 불일치 때문입니다.
+
+**해결책:** 새로운 "External" OAuth 클라이언트를 수동으로 생성하여 IAP에 할당해야 합니다.
+
+1.  **새 클라이언트 생성:**
+    - **[API 및 서비스 > 사용자 인증 정보](https://console.cloud.google.com/apis/credentials)**에서 **웹 애플리케이션** 유형의 OAuth 클라이언트 ID를 생성합니다.
+    - **승인된 리디렉션 URI**에 `https://iap.googleapis.com/v1/oauth/clientIds/[새_클라이언트_ID]:handleRedirect` 형식을 추가합니다.
+
+2.  **IAP에 강제 적용:**
+    - **[보안 > Identity-Aware Proxy](https://console.cloud.google.com/security/iap)**에서 해당 리소스의 **연필 아이콘**을 클릭하고 **"다른 OAuth 클라이언트 사용"**을 선택하여 새 클라이언트 정보를 입력합니다.

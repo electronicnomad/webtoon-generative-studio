@@ -27,7 +27,7 @@ from state.state import AppState
 
 @me.page(
     path="/home",
-    title="GenMedia Creative Studio - Google Cloud Vertex AI",
+    title="Gnomeregan Binary Studio - Home",
     security_policy=me.SecurityPolicy(
         dangerously_disable_trusted_types=True,
     ),
@@ -62,7 +62,7 @@ def home_page_content(app_state: me.state):  # pylint: disable=unused-argument
             flex_direction="column",
         )
     ):
-        header("GenMedia Creative Studio", "home")
+        header("Gnomeregan Binary Studio", "home")
 
         # Group pages by the "group" key
         grouped_pages: Dict[str, List[Dict]] = defaultdict(list)

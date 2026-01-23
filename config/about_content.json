@@ -1,7 +1,7 @@
 {
   "header": {
-    "title": "About GenMedia Creative Studio",
-    "introduction": "Welcome to GenMedia Creative Studio, an application showcasing Google Cloud's Vertex AI Generative Media models. This tool is designed to provide a hands-on experience with our full complement of generative AI APIs for image, video, speech, and music generation.\n\nGenMedia Creative Studio is available on Google Cloud's [Vertex AI Creative Studio github repo](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/veo-app) for you to install, customize and make your own generative AI magic."
+    "title": "About Gnomeregan Binary Studio",
+    "introduction": "Welcome to Gnomeregan Binary Studio, an application showcasing Google Cloud's Vertex AI Generative Media models. This tool is designed to provide a hands-on experience with our full complement of generative AI APIs for image, video, speech, and music generation.\n\nGnomeregan Binary Studio is available on https://github.com/electronicnomad/gnomeregan-binary-studio for you to install, customize and make your own generative AI magic. Gnomeregan Binary Studio based on Google Cloud's Vertex AI Creative Studio github repo: https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio"
   },
   "sections": [
     {
@@ -29,7 +29,7 @@
       "id": "lyria",
       "title": "Lyria",
       "description": "The **Lyria** page lets you generate musical scores. Provide a prompt describing the mood, genre, or instruments you want to hear.\n\n**Available Models:**\n*   Lyria\n\n[Learn more about Lyria on Vertex AI](https://cloud.google.com/vertex-ai/docs/generative-ai/audio/overview)",
-      "image": "assets/about/lyria_demo.png",
+      "image": null,
       "video": null
     },
     {
@@ -51,14 +51,14 @@
       "title": "Virtual Try-On",
       "stage": "preview",
       "description": "[Virtual Try-On](https://cloud.google.com/vertex-ai/generative-ai/docs/image/generate-virtual-try-on-images) is a fully managed Vertex AI service to generate images of persons modeling fashion products.\n\n**Virtual Try-On** brings Google's advanced image generation technology to developers and retail customers in the fashion industry. This experimental service provides an easy-to-use API and cutting edge quality for generating shots of models trying-on products.\n\nWith Virtual Try-On, you can create high quality listing photos with just an image of a person and a product to try on. Supported products are:\n * Tops: shirts, hoodies sweaters, tank tops, blouses\n* Bottoms: Pants, leggings, shorts, skirts\n* Footwear: Sneakers, boots, sandals, flats, heels, formal shoes\n\nThis workflow allows you to see how a piece of clothing looks on a person. You provide an image of a person and an image of a garment, and the model generates a new image of the person wearing the item.",
-      "image": "assets/about/vto_demo.png",
+      "image": null,
       "video": null
     },
     {
       "id": "recontextualize",
       "title": "Product in Scene",
       "description": "**Imagen Product Recontext** brings Google's advanced image generation technology to developers and retailers for generating product images. This service provides an easy-to-use API and cutting edge quality for generating shots of products in new scenes and contexts.\n\nWith Product Recontext, you can create high quality listing photos with just an image of a product and an optional text prompt. Supported product categories are:\n* Appliances\n* Business and industrial\n* Clothing\n* Electronics\n* Furniture\n* Garden and yard\n* Hardware\n* Health and beauty\n* Jewelry\n* Pets\n* Shoes\n* Sporting goods\n* Toys and games\n* Vehicle\n\nThis workflow, also known as Product Recontextualization, allows you to take a product image and place it in a new scene. You provide an image of the product and a text prompt describing the new scene, and the model generates a new image of the product in that scene.",
-      "image": "assets/about/recontextualize_demo.png",
+      "image": null,
       "video": null
     },
     {
@@ -79,11 +79,6 @@
       "id": "interior_design",
       "title": "Interior Design",
       "description": "Starting with a flat floor plan, create a 3d view, then explore each room and change the interior design, resulting in a fresh new perspective.\n\nPavithra Sainath, Cloud AI, Applied AI Engineering"
-    },
-    {
-      "id": "retro_games",
-      "title": "Retro Games",
-      "description": "The **Retro Games** workflow transforms images into 8-bit pixel art assets and animated video clips. You can:\n*   Upload images for Player 1 and optionally Player 2.\n*   Generate 8-bit avatars and character sprite sheets.\n*   Create sequential video narratives using Gemini for storyboarding and Veo for video generation.\n*   Automatically stitch scenes together with a branded bumper."
     }
   ]
 }
