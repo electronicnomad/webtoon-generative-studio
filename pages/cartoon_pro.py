@@ -7,7 +7,8 @@ from common.utils import create_display_url
 from components.page_scaffold import page_scaffold, page_frame
 from components.header import header
 from components.cartoon.dataset_uploader import dataset_uploader
-from common.metadata import get_all_datasets, add_media_item
+from components.image_thumbnail import image_thumbnail
+from common.metadata import get_all_datasets, add_media_item, MediaItem, delete_media_item
 from state.state import AppState
 from models.cartoon import analyze_conte, generate_cartoon_frame
 
@@ -21,11 +22,35 @@ class PageState:
     is_loading: bool = False
     datasets: List[dict] = field(default_factory=list)
     selected_dataset: str = ""
+    dataset_items: List[MediaItem] = field(default_factory=list)
     conte_image_uri: str = ""
     conte_image_gcs_uri: str = ""
     generated_image_uri: str = ""
     prompt: str = ""
+
     
+def on_delete_item_from_event(e: me.ClickEvent):
+    """
+    Handles deletion by extracting the item ID from the event key.
+    Key format: 'btn_del_{item_id}'
+    """
+    key = e.key
+    if not key or not key.startswith("btn_del_"):
+        print(f"[ERROR] Invalid delete key: {key}")
+        return
+
+    item_id = key.replace("btn_del_", "")
+    
+    state = me.state(PageState)
+    
+    # Optimistic Update
+    state.dataset_items = [item for item in state.dataset_items if item.id != item_id]
+    
+    try:
+        delete_media_item(item_id)
+    except Exception as ex:
+        print(f"Error deleting item {item_id}: {ex}")
+
 def on_load(e: me.LoadEvent):
     """Load available datasets."""
     state = me.state(PageState)
@@ -55,6 +80,20 @@ def on_load(e: me.LoadEvent):
 def on_dataset_change(e: me.SelectSelectionChangeEvent):
     state = me.state(PageState)
     state.selected_dataset = e.value
+    _load_dataset_items(state)
+
+def _load_dataset_items(state):
+    # Load thumbnails for the selected dataset
+    try:
+        from common.metadata import get_media_by_dataset
+        items = get_media_by_dataset(state.selected_dataset, limit=20)
+        # Create a new list object to ensure reference change for state detection
+        state.dataset_items = list(items)
+    except Exception as ex:
+        print(f"Error loading thumbnails: {ex}")
+        import traceback
+        traceback.print_exc()
+        state.dataset_items = []
 
 def on_conte_upload(e: me.UploadEvent):
     state = me.state(PageState)
@@ -85,7 +124,7 @@ def page():
             
             with me.box(style=me.Style(display="flex", flex_direction="row", gap=24, padding=me.Padding.all(16))):
                 # Left Column: Configuration & Inputs
-                with me.box(style=me.Style(flex_basis="40%", flex_grow=1, display="flex", flex_direction="column", gap=16)):
+                with me.box(style=me.Style(flex_basis="40%", flex_grow=1, display="flex", flex_direction="column", gap=16, min_width=0)):
                     me.text("1. Select Dataset", type="headline-6")
                     
                     with me.box(style=me.Style(display="flex", align_items="center", gap=8)):
@@ -104,6 +143,50 @@ def page():
                         with me.content_button(type="icon", on_click=on_refresh_datasets):
                             me.tooltip(message="Refresh Datasets")
                             me.icon("refresh")
+                    
+                    # Thumbnails Preview
+                    if state.dataset_items:
+                        me.text(f"Recent {len(state.dataset_items)} items:", style=me.Style(font_size=12, color="#666"))
+                        with me.box(style=me.Style(
+                            display="flex", 
+                            flex_direction="row", 
+                            gap=8, 
+                            overflow_x="auto", 
+                            padding=me.Padding.all(8),
+                            background="#f5f5f5",
+                            border_radius=8,
+                            border=me.Border.all(me.BorderSide(width=1, color="#e0e0e0")),
+                            width="100%", # Ensure it doesn't exceed parent width
+                            max_width="100%", # Force containment
+                        )):
+                            for index, item in enumerate(state.dataset_items):
+                                uri = None
+                                if item.thumbnail_uri:
+                                    uri = item.thumbnail_uri
+                                elif item.gcsuri:
+                                    uri = create_display_url(item.gcsuri)
+                                elif item.gcs_uris:
+                                    uri = create_display_url(item.gcs_uris[0])
+                                
+                                if uri:
+                                    # Use ID-based key to ensure Mesop tracks the item correctly
+                                    # This fixes the "last item deleted" bug by ensuring the component is tied to the data ID, not the index.
+                                    # Pass key directly to the component to ensure React/Mesop tracks it correctly at the component level
+                                    image_thumbnail(
+                                        key=f"thumb_{item.id}",
+                                        image_uri=uri,
+                                        index=index,
+                                        on_remove=on_delete_item_from_event,
+                                        title=item.id,
+                                        icon_size=16,
+                                        delete_button_key=f"btn_del_{item.id}"
+                                    )
+
+                    elif state.selected_dataset:
+                        me.text("No reference images found.", style=me.Style(color="gray", font_size=12, font_style="italic"))
+
+
+
                     
                     # Collapsible or Separate Section for Uploading New Assets
                     with me.expansion_panel(title="Manage Datasets & Assets"):

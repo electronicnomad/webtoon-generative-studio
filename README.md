@@ -8,17 +8,17 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
 
 > ###### _This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security). This project is intended for demonstration purposes only. It is not intended for use in a production environment._
 
-![GenMedia Creative Studio v.next](https://github.com/user-attachments/assets/da5ad223-aa6e-413c-b36e-5d63e5d5b758)
+![Gnomeregan Binary Studio v.next](https://github.com/user-attachments/assets/da5ad223-aa6e-413c-b36e-5d63e5d5b758)
 
-![GenMedia Creative Studio v.next](https://github.com/user-attachments/assets/61977f3c-dbb6-4002-b8c0-77d57aa03cce)
+![Gnomeregan Binary Studio v.next](https://github.com/user-attachments/assets/61977f3c-dbb6-4002-b8c0-77d57aa03cce)
 
 ## Table of Contents
 
-- [GenMedia Creative Studio | Vertex AI](#genmedia-creative-studio--vertex-ai)
+- [Gnomeregan Binary Studio | Vertex AI](#gnomeregan-binary-studio--vertex-ai)
 - [Table of Contents](#table-of-contents)
-- [GenMedia Creative Studio](#genmedia-creative-studio)
+- [Gnomeregan Binary Studio](#gnomeregan-binary-studio)
   - [Experiments](#experiments)
-- [Deploying GenMedia Creative Studio](#deploying-genmedia-creative-studio)
+- [Deploying Gnomeregan Binary Studio](#deploying-gnomeregan-binary-studio)
   - [Prerequisites](#prerequisites)
     - [1. Download the source code for this project](#1-download-the-source-code-for-this-project)
     - [2. Export Environment Variables](#2-export-environment-variables)
@@ -42,18 +42,18 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [Setting up your development environment](#setting-up-your-development-environment)
     - [Python virtual environment](#python-virtual-environment)
     - [Application Environment variables](#application-environment-variables)
-  - [GenMedia Creative Studio - Developing](#genmedia-creative-studio---developing)
+  - [Gnomeregan Binary Studio - Developing](#gnomeregan-binary-studio---developing)
     - [Running](#running)
     - [Developing](#developing)
   - [Contributing changes](#contributing-changes)
   - [Licensing](#licensing)
 - [Disclaimer](#disclaimer)
 
-## GenMedia Creative Studio
+## Gnomeregan Binary Studio
 
 > **Browser Compatibility:** For the best experience, we recommend using Google Chrome. Some features may not work as expected on other browsers, such as Safari or Firefox.
 
-GenMedia Creative Studio is a web application showcasing Google Cloud's generative media - Veo, Lyria, Chirp, Gemini 2.5 Flash Image Generation (nano-banana), and Gemini TTS along with custom workflows and techniques for creative exploration and inspiration. We're looking forward to see what you create!
+Gnomeregan Binary Studio is a web application showcasing Google Cloud's generative media - Veo, Lyria, Chirp, Gemini 2.5 Flash Image Generation (nano-banana), and Gemini TTS along with custom workflows and techniques for creative exploration and inspiration. We're looking forward to see what you create!
 
 Current featureset
 
@@ -112,9 +112,9 @@ This repository uses **Google's Gemini CLI** to automate software engineering ta
 
 For detailed documentation on the agents and workflows, see [AGENTS.md](./AGENTS.md).
 
-## Deploying GenMedia Creative Studio
+## Deploying Gnomeregan Binary Studio
 
-Deployment of GenMedia Creative Studio is accomplished using a combination of Terraform and Cloud Build. Terraform is used to deploy the infrastructure and Cloud Build is used to create the container image and update the Cloud Run service to use it.
+Deployment of Gnomeregan Binary Studio is accomplished using a combination of Terraform and Cloud Build. Terraform is used to deploy the infrastructure and Cloud Build is used to create the container image and update the Cloud Run service to use it.
 
 You have two deployment options for this application:
 
@@ -161,11 +161,11 @@ export INITIAL_USERS='["admin@example.com"]'
 
 ## Deploying with Custom Domain
 
-Follow these steps if you are going to deploy GenMedia Creative Studio using your own custom domain. You will need the ability to create a DNS A record if you choose this deployment option.
+Follow these steps if you are going to deploy Gnomeregan Binary Studio using your own custom domain. You will need the ability to create a DNS A record if you choose this deployment option.
 
 ### 1. Initialize Terraform
 
-Because you are using a custom domain, you will need to export one more variable with the DNS name for the domain that will be used to navigate to GenMedia Creative Studio.
+Because you are using a custom domain, you will need to export one more variable with the DNS name for the domain that will be used to navigate to Gnomeregan Binary Studio.
 
 ```bash
 export DOMAIN_NAME=creativestudio.example.com
@@ -265,9 +265,9 @@ Use this option if you want to quickly run the UI without having to setup a loca
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio.git&cloudshell_tutorial=TUTORIAL.md)
 
-# Updating GenMedia Creative Studio
+# Updating Gnomeregan Binary Studio
 
-As new features and fixes are added to GenMedia Creative Studio, you will want to update your deployment. You do **not** need to destroy your existing infrastructure.
+As new features and fixes are added to Gnomeregan Binary Studio, you will want to update your deployment. You do **not** need to destroy your existing infrastructure.
 
 ## Updating Application Code
 
@@ -384,7 +384,7 @@ Only one environment variable is required:
 
 See the template dotenv.template file for the defaults and what environment variable options are available.
 
-## GenMedia Creative Studio - Developing
+## Gnomeregan Binary Studio - Developing
 
 ### Running
 
@@ -428,17 +428,17 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
 
 > ###### _이 제품은 Google에서 공식적으로 지원하는 제품이 아닙니다. 이 프로젝트는 [Google 오픈소스 소프트웨어 취약점 보상 프로그램](https://bughunters.google.com/open-source-security)의 대상이 아닙니다. 이 프로젝트는 데모 목적으로만 제공됩니다. 프로덕션 환경에서의 사용을 목적으로 하지 않습니다._
 
-![GenMedia Creative Studio v.next](https://github.com/user-attachments/assets/da5ad223-aa6e-413c-b36e-5d63e5d5b758)
+![Gnomeregan Binary Studio v.next](https://github.com/user-attachments/assets/da5ad223-aa6e-413c-b36e-5d63e5d5b758)
 
-![GenMedia Creative Studio v.next](https://github.com/user-attachments/assets/61977f3c-dbb6-4002-b8c0-77d57aa03cce)
+![Gnomeregan Binary Studio v.next](https://github.com/user-attachments/assets/61977f3c-dbb6-4002-b8c0-77d57aa03cce)
 
 ## 목차
 
-- [GenMedia Creative Studio | Vertex AI](#genmedia-creative-studio--vertex-ai)
+- [Gnomeregan Binary Studio | Vertex AI](#gnomeregan-binary-studio--vertex-ai)
 - [목차](#목차)
-- [GenMedia Creative Studio](#genmedia-creative-studio-1)
+- [Gnomeregan Binary Studio](#gnomeregan-binary-studio-1)
   - [실험 기능](#실험-기능)
-- [GenMedia Creative Studio 배포하기](#genmedia-creative-studio-배포하기)
+- [Gnomeregan Binary Studio 배포하기](#gnomeregan-binary-studio-배포하기)
   - [사전 요구사항](#사전-요구사항)
     - [1. 프로젝트 소스 코드 다운로드](#1-프로젝트-소스-코드-다운로드)
     - [2. 환경 변수 내보내기](#2-환경-변수-내보내기)
@@ -462,18 +462,18 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [개발 환경 설정](#개발-환경-설정)
     - [Python 가상 환경](#python-가상-환경)
     - [애플리케이션 환경 변수](#애플리케이션-환경-변수)
-  - [GenMedia Creative Studio - 개발](#genmedia-creative-studio---개발)
+  - [Gnomeregan Binary Studio - 개발](#gnomeregan-binary-studio---개발)
     - [실행](#실행)
     - [개발](#개발-1)
   - [변경 사항 기여](#변경-사항-기여)
   - [라이선스](#라이선스)
 - [면책 조항](#면책-조항)
 
-## GenMedia Creative Studio
+## Gnomeregan Binary Studio
 
 > **브라우저 호환성:** 최상의 경험을 위해 Google Chrome을 사용하는 것을 권장합니다. Safari나 Firefox와 같은 다른 브라우저에서는 일부 기능이 예상대로 작동하지 않을 수 있습니다.
 
-GenMedia Creative Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chirp, Gemini 2.5 Flash 이미지 생성(nano-banana), Gemini TTS)와 창의적 탐색 및 영감을 위한 맞춤형 워크플로 및 기술을 보여주는 웹 애플리케이션입니다. 여러분이 무엇을 만들어낼지 기대됩니다!
+Gnomeregan Binary Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chirp, Gemini 2.5 Flash 이미지 생성(nano-banana), Gemini TTS)와 창의적 탐색 및 영감을 위한 맞춤형 워크플로 및 기술을 보여주는 웹 애플리케이션입니다. 여러분이 무엇을 만들어낼지 기대됩니다!
 
 현재 기능 세트:
 
@@ -533,9 +533,9 @@ GenMedia Creative Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chir
 
 에이전트 및 워크플로에 대한 자세한 문서는 [AGENTS.md](./AGENTS.md)를 참조하세요.
 
-## GenMedia Creative Studio 배포하기
+## Gnomeregan Binary Studio 배포하기
 
-GenMedia Creative Studio의 배포는 Terraform과 Cloud Build의 조합을 사용하여 수행됩니다. Terraform은 인프라를 배포하는 데 사용되며, Cloud Build는 컨테이너 이미지를 생성하고 이를 사용하도록 Cloud Run 서비스를 업데이트하는 데 사용됩니다.
+Gnomeregan Binary Studio의 배포는 Terraform과 Cloud Build의 조합을 사용하여 수행됩니다. Terraform은 인프라를 배포하는 데 사용되며, Cloud Build는 컨테이너 이미지를 생성하고 이를 사용하도록 Cloud Run 서비스를 업데이트하는 데 사용됩니다.
 
 이 애플리케이션에 대해 두 가지 배포 옵션이 있습니다:
 
@@ -582,11 +582,11 @@ export INITIAL_USERS='["admin@example.com"]'
 
 ## 사용자 지정 도메인으로 배포하기
 
-GenMedia Creative Studio를 사용자 지정 도메인을 사용하여 배포하려면 다음 단계를 따르세요. 이 배포 옵션을 선택하는 경우 DNS A 레코드를 생성할 수 있어야 합니다.
+Gnomeregan Binary Studio를 사용자 지정 도메인을 사용하여 배포하려면 다음 단계를 따르세요. 이 배포 옵션을 선택하는 경우 DNS A 레코드를 생성할 수 있어야 합니다.
 
 ### 1. Terraform 초기화
 
-사용자 지정 도메인을 사용하므로, GenMedia Creative Studio로 이동하는 데 사용할 도메인의 DNS 이름으로 변수 하나를 더 내보내야 합니다.
+사용자 지정 도메인을 사용하므로, Gnomeregan Binary Studio로 이동하는 데 사용할 도메인의 DNS 이름으로 변수 하나를 더 내보내야 합니다.
 
 ```bash
 export DOMAIN_NAME=creativestudio.example.com
@@ -686,9 +686,9 @@ gcloud beta iap web add-iam-policy-binding \
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio.git&cloudshell_tutorial=TUTORIAL.md)
 
-# GenMedia Creative Studio 업데이트
+# Gnomeregan Binary Studio 업데이트
 
-GenMedia Creative Studio에 새로운 기능과 수정 사항이 추가됨에 따라 배포를 업데이트하고 싶을 것입니다. 기존 인프라를 삭제할 필요는 **없습니다**.
+Gnomeregan Binary Studio에 새로운 기능과 수정 사항이 추가됨에 따라 배포를 업데이트하고 싶을 것입니다. 기존 인프라를 삭제할 필요는 **없습니다**.
 
 ## 애플리케이션 코드 업데이트
 
@@ -805,7 +805,7 @@ uv sync
 
 기본값 및 사용 가능한 환경 변수 옵션은 템플릿 dotenv.template 파일을 참조하세요.
 
-## GenMedia Creative Studio - 개발
+## Gnomeregan Binary Studio - 개발
 
 ### 실행
 

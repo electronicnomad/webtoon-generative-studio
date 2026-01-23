@@ -1,8 +1,0 @@
-mesop>=0.9.3
-Flask
-gunicorn
-Werkzeug
-dataclasses_json
-google-cloud-aiplatform
-google-cloud-logging
-python-dotenv

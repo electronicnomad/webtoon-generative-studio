@@ -4,7 +4,7 @@
 
 # Deployment & Resources Guide
 
-This document provides detailed information about the deployment process for GenMedia Creative Studio and the Google Cloud resources provisioned via Terraform.
+This document provides detailed information about the deployment process for Gnomeregan Binary Studio and the Google Cloud resources provisioned via Terraform.
 
 ## 1. Deployment Architecture Overview
 
@@ -112,7 +112,7 @@ Command: `./build.sh`
 
 # 배포 및 리소스 가이드 (Deployment & Resources Guide)
 
-이 문서는 GenMedia Creative Studio의 배포 프로세스와 Terraform을 통해 프로비저닝되는 Google Cloud 리소스에 대한 상세 정보를 제공합니다.
+이 문서는 Gnomeregan Binary Studio의 배포 프로세스와 Terraform을 통해 프로비저닝되는 Google Cloud 리소스에 대한 상세 정보를 제공합니다.
 
 ## 1. 배포 아키텍처 개요
 

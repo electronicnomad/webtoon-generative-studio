@@ -400,6 +400,7 @@ def add_media_item(user_email: str, **kwargs):
     doc_ref.set(firestore_data)
 
     logger.info(f"Media data stored in Firestore with document ID: {doc_ref.id}")
+    return doc_ref.id
 
 
 def get_latest_videos(limit: int = 10):
@@ -664,11 +665,13 @@ def get_media_by_dataset(dataset_name: str, limit: int = 50) -> List[MediaItem]:
         return []
     
     try:
+        # Note: We sort in Python to avoid requiring a composite index on (dataset_name, timestamp)
+        # for this new query pattern. For large datasets, a proper index should be created.
         query = (
             db.collection(config.GENMEDIA_COLLECTION_NAME)
             .where("dataset_name", "==", dataset_name)
-            .order_by("timestamp", direction=firestore.Query.DESCENDING)
-            .limit(limit)
+            # .order_by("timestamp", direction=firestore.Query.DESCENDING) # Disabled to avoid index error
+            # .limit(limit) # Limit applies after sort, so we can't reliably limit at DB query without sort order
         )
         docs = list(query.stream())
         media_items = []
@@ -676,7 +679,22 @@ def get_media_by_dataset(dataset_name: str, limit: int = 50) -> List[MediaItem]:
             item = _create_media_item_from_dict(doc.id, doc.to_dict())
             if item:
                 media_items.append(item)
-        return media_items
+        
+        # Sort by timestamp descending
+        media_items.sort(key=lambda x: x.timestamp or "", reverse=True)
+        
+        return media_items[:limit]
     except Exception as e:
         logger.error(f"Error fetching media for dataset '{dataset_name}': {e}")
         return []
+
+def delete_media_item(item_id: str):
+    """Deletes a media item from Firestore."""
+    if not db or not item_id:
+        return
+
+    try:
+        db.collection(config.GENMEDIA_COLLECTION_NAME).document(item_id).delete()
+        logger.info(f"Deleted media item with ID: {item_id}")
+    except Exception as e:
+        logger.error(f"Error deleting media item {item_id}: {e}")

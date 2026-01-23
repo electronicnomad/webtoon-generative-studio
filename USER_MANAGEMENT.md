@@ -4,7 +4,7 @@
 
 # User Management Guide
 
-This guide details the procedures for adding users to GenMedia Creative Studio, covering two main scenarios: adding users from the same organization (Internal) and adding users from different domains (External).
+This guide details the procedures for adding users to Gnomeregan Binary Studio, covering two main scenarios: adding users from the same organization (Internal) and adding users from different domains (External).
 
 ## Scenario A: Adding Users from the Same Domain (Internal)
 
@@ -88,7 +88,7 @@ If external users see **"Error Code 11"** or "Invalid Request" after login, whil
 
 # 사용자 관리 가이드 (User Management Guide)
 
-이 가이드는 GenMedia Creative Studio에 사용자를 추가하는 절차를 설명합니다. 같은 조직의 사용자를 추가하는 경우(내부)와 다른 도메인의 사용자를 추가하는 경우(외부) 두 가지 시나리오를 다룹니다.
+이 가이드는 Gnomeregan Binary Studio에 사용자를 추가하는 절차를 설명합니다. 같은 조직의 사용자를 추가하는 경우(내부)와 다른 도메인의 사용자를 추가하는 경우(외부) 두 가지 시나리오를 다룹니다.
 
 ## 시나리오 A: 같은 도메인 사용자 추가 (Internal)
 

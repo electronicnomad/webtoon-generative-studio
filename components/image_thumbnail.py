@@ -16,29 +16,44 @@ import mesop as me
 from typing import Callable
 
 @me.component
-def image_thumbnail(image_uri: str, index: int, on_remove: Callable, icon_size: int = 18):
+def image_thumbnail(image_uri: str, index: int, on_remove: Callable, title: str = "", icon_size: int = 18, delete_button_key: str = "", **kwargs):
     # Calculate the container dimension based on the icon size.
     # This creates a consistent 4px "padding" on all sides.
     box_dimension = icon_size + 8
     
-    with me.box(style=me.Style(position="relative", width=100, height=100)):
-        me.image(src=image_uri, style=me.Style(width="100%", height="100%", border_radius=8, object_fit="cover"))
-        with me.box(
-            on_click=on_remove,
-            key=str(index),
-            style=me.Style(
-                background="rgba(0, 0, 0, 0.5)",
-                color="white",
-                position="absolute",
-                top=4,
-                right=4,
-                border_radius="50%",  # Use 50% for a perfect circle
-                cursor="pointer",
-                display="flex",
-                align_items="center",
-                justify_content="center",
-                width=box_dimension,
-                height=box_dimension,
-            ),
-        ):
-            me.icon("close", style=me.Style(font_size=icon_size, transform="translate(2px, 3px)",))
+    width = 120
+    with me.box(style=me.Style(display="flex", flex_direction="column", align_items="center", gap=4, width=width, min_width=width, max_width=width), **kwargs):
+        with me.box(style=me.Style(position="relative", width=100, height=100)):
+            me.image(src=image_uri, style=me.Style(width="100%", height="100%", border_radius=8, object_fit="cover"))
+            with me.box(
+                key=delete_button_key,
+                on_click=on_remove,
+                style=me.Style(
+                    background="rgba(0, 0, 0, 0.5)",
+                    color="white",
+                    position="absolute",
+                    top=4,
+                    right=4,
+                    border_radius="50%",  # Use 50% for a perfect circle
+                    cursor="pointer",
+                    display="flex",
+                    align_items="center",
+                    justify_content="center",
+                    width=box_dimension,
+                    height=box_dimension,
+                ),
+            ):
+                me.icon("close", style=me.Style(font_size=icon_size, transform="translate(2px, 3px)",))
+        
+        if title:
+            me.text(
+                title, 
+                style=me.Style(
+                    font_size=10, 
+                    white_space="normal",
+                    overflow_wrap="break-word",
+                    width="100%", 
+                    text_align="center",
+                    line_height="1.2"
+                )
+            )

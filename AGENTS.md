@@ -4,7 +4,7 @@
 
 # Agent Guidelines for veo-app
 
-This document provides guidelines for AI agents working on the GenMedia Creative Studio codebase.
+This document provides guidelines for AI agents working on the Gnomeregan Binary Studio codebase.
 
 ## Styling
 
@@ -114,7 +114,7 @@ This system is powered by the [Gemini CLI](https://github.com/google-github-acti
 
 # veo-app을 위한 에이전트 가이드라인
 
-이 문서는 GenMedia Creative Studio 코드베이스에서 작업하는 AI 에이전트를 위한 가이드라인을 제공합니다.
+이 문서는 Gnomeregan Binary Studio 코드베이스에서 작업하는 AI 에이전트를 위한 가이드라인을 제공합니다.
 
 ## 스타일링 (Styling)
 
