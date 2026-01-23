@@ -6,7 +6,7 @@
 
 A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
 
-> ###### _This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security). This project is intended for demonstration purposes only. It is not intended for use in a production environment._
+> ###### _Thank you for your interest. Please note that this is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security). It is intended for demonstration purposes only and is not recommended for use in a production environment._
 
 ![Gearframe Creative Studio v.next](./assets/welcome_screen.png)
 
@@ -254,7 +254,7 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 
 A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
 
-> ###### _이 제품은 Google에서 공식적으로 지원하는 제품이 아닙니다. 이 프로젝트는 [Google 오픈소스 소프트웨어 취약점 보상 프로그램](https://bughunters.google.com/open-source-security)의 대상이 아닙니다. 이 프로젝트는 데모 목적으로만 제공됩니다. 프로덕션 환경에서의 사용을 목적으로 하지 않습니다._
+> ###### _방문해 주셔서 감사합니다. 본 프로젝트는 Google의 공식 제품이 아님을 정중히 알려드립니다. 이 프로젝트는 커뮤니티에 의해 유지보수되며, [Google 오픈소스 소프트웨어 취약점 보상 프로그램](https://bughunters.google.com/open-source-security)의 대상이 아닙니다. 실험 및 데모 목적으로 제작되었으므로, 프로덕션 환경에서의 사용은 권장하지 않습니다._
 
 ![Gearframe Creative Studio v.next](./assets/welcome_screen.png)
 
