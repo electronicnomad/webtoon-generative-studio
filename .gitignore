@@ -1,5 +1,3 @@
-__pycache__
-venv
 venv
 .venv
 __pycache__
@@ -16,14 +14,11 @@ samples/
 gha-creds-*.json
 
 .commit.txt
-local/
 node_modules
 dist
 local/  
 recaps/
 plans/
-__local/
-__env/
 .agent/
 
 ### Terraform ###
@@ -44,6 +39,7 @@ crash.*.log
 # to change depending on the environment.
 *.tfvars
 *.tfvars.json
+*.tfvar*
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
