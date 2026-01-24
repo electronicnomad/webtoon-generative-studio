@@ -55,7 +55,7 @@ from pages import pixie_compositor as pixie_compositor_page
 from pages import portraits as motion_portraits
 from pages import recontextualize as recontextualize_page
 from pages import starter_pack as starter_pack_page
-from pages import test_proxy_caching as test_proxy_caching_page
+
 from pages import selfie as selfie_page
 from pages import veo
 from pages import vto as vto_page
@@ -63,15 +63,8 @@ from pages import welcome as welcome_page
 
 from pages.edit_images import content as edit_images_content
 from pages.library_v2 import page as library_v2_page
-from pages.test_character_consistency import page as test_character_consistency_page
-from pages.test_index import page as test_index_page
-from pages.test_infinite_scroll import test_infinite_scroll_page
-from pages.test_media_chooser import page as test_media_chooser_page
-from pages.test_pixie_compositor import test_pixie_compositor_page
-from pages.test_svg import test_svg_page
-from pages.test_uploader import test_uploader_page
-from pages.test_vto_prompt_generator import page as test_vto_prompt_generator_page
-from pages.test_async_veo import page as test_async_veo_page
+from pages.library_v2 import page as library_v2_page
+
 import pages.imagen_upscale
 import pages.storyboarder
 import pages.character_sheet
@@ -203,23 +196,8 @@ async def set_request_context(request: Request, call_next):
 
 
 # Test page routes are left as is, they don't need the scaffold
-me.page(path="/test_character_consistency", title="Test Character Consistency")(
-    test_character_consistency_page
-)
-me.page(path="/test_index", title="Test Index")(test_index_page)
-me.page(path="/test_infinite_scroll", title="Test Infinite Scroll")(
-    test_infinite_scroll_page
-)
-me.page(path="/test_pixie_compositor", title="Test Pixie Compositor")(
-    test_pixie_compositor_page
-)
-me.page(path="/test_uploader", title="Test Uploader")(test_uploader_page)
-me.page(path="/test_vto_prompt_generator", title="Test VTO Prompt Generator")(
-    test_vto_prompt_generator_page
-)
-me.page(path="/test_svg", title="Test SVG")(test_svg_page)
-me.page(path="/test_media_chooser", title="Test Media Chooser")(test_media_chooser_page)
-me.page(path="/test_async_veo", title="Test Async Veo")(test_async_veo_page)
+# Test page routes are left as is, they don't need the scaffold
+
 
 
 

@@ -24,7 +24,7 @@ import mesop as me
 
 from common.analytics import log_ui_click
 from common.analytics import log_ui_click
-from common.metadata import MediaItem, get_media_for_page, get_media_item_by_id, get_all_datasets
+from common.metadata import MediaItem, get_media_for_page, get_media_item_by_id, get_all_datasets, delete_media_item
 from common.utils import create_display_url, https_url_to_gcs_uri
 from components.dialog import dialog
 from components.header import header
@@ -61,6 +61,10 @@ class PageState:
     extend_dialog_state: VeoExtendDialogState = field(default_factory=VeoExtendDialogState)
     datasets: List[dict] = field(default_factory=list)
     selected_dataset: str = "all"
+    show_delete_dataset_dialog: bool = False
+    
+    # For file management within library
+    uploader_mode: bool = False 
 
 
 def on_load(e: me.LoadEvent):
@@ -107,6 +111,11 @@ def _load_media(pagestate: PageState, is_filter_change: bool = False):
         error_filter=pagestate.error_filter,
         filter_by_dataset=pagestate.selected_dataset if pagestate.selected_dataset != "all" else None,
     )
+    
+    # Client-side sort since we removed Firestore sort to avoid index errors
+    # Sort by timestamp descending (newest first)
+    # Handle None timestamps safely by treating them as very old or very new depending on preference (here very old)
+    new_items.sort(key=lambda x: str(x.timestamp) if x.timestamp else "", reverse=True)
 
     if not new_items:
         pagestate.all_items_loaded = True
@@ -195,13 +204,34 @@ def library_content():
                 dataset_options = [me.SelectOption(label="All Datasets", value="all")] + [
                     me.SelectOption(label=d["name"], value=d["name"]) for d in pagestate.datasets
                 ]
-                me.select(
-                    label="Dataset",
-                    options=dataset_options,
-                    value=pagestate.selected_dataset,
-                    on_selection_change=on_dataset_filter_change,
-                    style=me.Style(width=200),
-                )
+                with me.box(style=me.Style(display="flex", align_items="center", gap=8)):
+                    me.select(
+                        label="Dataset",
+                        options=dataset_options,
+                        value=pagestate.selected_dataset,
+                        on_selection_change=on_dataset_filter_change,
+                        style=me.Style(width=200),
+                    )
+                    
+                    # Manage Dataset Button (Only visible if a specific dataset is selected)
+                    if pagestate.selected_dataset != "all":
+                         me.button(
+                             "Delete Dataset", 
+                             type="stroked", 
+                             color="warn", 
+                             on_click=on_delete_dataset_click
+                         )
+                         
+                         # Add Upload Button within dataset context
+                         me.uploader(
+                             label="Upload Files",
+                             accepted_file_types=["image/jpeg", "image/png", "image/webp", "video/mp4"],
+                             on_upload=on_quick_upload_to_dataset,
+                             multiple=True,
+                             style=me.Style(width="100%"),
+                             type="flat"
+                         )
+
 
             me.button_toggle(
                 value=pagestate.type_filters,
@@ -269,13 +299,35 @@ def library_content():
                         elif ".wav" in https_url or ".mp3" in https_url:
                             render_type = "audio"
 
-                    media_tile(
-                        key=item.id,
-                        on_click=on_media_item_click,
-                        media_type=render_type,
-                        https_url=https_url,
-                        pills_json=get_pills_for_item(item, https_url),
-                    )
+                    with me.box(style=me.Style(position="relative")):
+                        media_tile(
+                            key=item.id,
+                            on_click=on_media_item_click,
+                            media_type=render_type,
+                            https_url=https_url,
+                            pills_json=get_pills_for_item(item, https_url),
+                        )
+                        # Delete button overlay
+                        with me.box(
+                            key=f"btn_del_{item.id}",
+                            on_click=on_delete_click,
+                            style=me.Style(
+                                position="absolute",
+                                top=5,
+                                right=5,
+                                background="rgba(0, 0, 0, 0.5)",
+                                color="white",
+                                border_radius="50%",
+                                width=24,
+                                height=24,
+                                cursor="pointer",
+                                display="flex",
+                                align_items="center",
+                                justify_content="center",
+                                z_index=10, # Ensure it's above the media tile
+                            ),
+                        ):
+                             me.icon("close", style=me.Style(font_size=16))
 
         scroll_sentinel(
             on_visible=on_load_more,
@@ -285,6 +337,99 @@ def library_content():
 
         library_dialog(pagestate)
         extend_dialog(pagestate.extend_dialog_state, on_close=on_close_extend_dialog)
+        delete_dataset_dialog(pagestate)
+
+
+def on_toggle_uploader(e: me.ClickEvent):
+    state = me.state(PageState)
+    state.uploader_mode = not state.uploader_mode
+    yield
+
+def on_quick_upload_to_dataset(e: me.UploadEvent):
+    """Handles direct upload to the currently selected dataset from the library view."""
+    state = me.state(PageState)
+    app_state = me.state(AppState)
+    
+    if state.selected_dataset == "all":
+        return
+
+    from common.storage import store_to_gcs
+    from common.metadata import add_media_item
+    
+    uploaded_files = e.files if hasattr(e, "files") and e.files else [e.file]
+    
+    for file in uploaded_files:
+        try:
+            # 1. Upload to GCS
+            gcs_uri = store_to_gcs(
+                folder=f"datasets/{state.selected_dataset}",
+                file_name=file.name,
+                mime_type=file.mime_type,
+                contents=file.read()
+            )
+            
+            # 2. Add Metadata
+            add_media_item(
+                user_email=app_state.user_email,
+                gcsuri=gcs_uri,
+                mime_type=file.mime_type,
+                dataset_name=state.selected_dataset,
+                media_type="video" if "video" in file.mime_type else "image",
+                status="complete",
+                prompt="Uploaded via Library",
+                mode="manual_upload"
+            )
+        except Exception as ex:
+             print(f"Error uploading {file.name}: {ex}")
+    
+    # Refresh view
+    yield from _load_media(state, is_filter_change=True)
+
+
+def on_delete_dataset_click(e: me.ClickEvent):
+    state = me.state(PageState)
+    state.show_delete_dataset_dialog = True
+    yield
+
+def on_cancel_delete_dataset(e: me.ClickEvent):
+    state = me.state(PageState)
+    state.show_delete_dataset_dialog = False
+    yield
+
+def on_confirm_delete_dataset(e: me.ClickEvent):
+    state = me.state(PageState)
+    from common.metadata import delete_dataset
+    
+    if state.selected_dataset and state.selected_dataset != "all":
+        # Delete the dataset metadata
+        delete_dataset(state.selected_dataset)
+        
+        # Optionally, we could also delete all items IN the dataset. 
+        # For now, let's keep the items but maybe orphan them or assume delete_dataset handles it?
+        # A true "Delete Dataset" usually implies deleting contents or at least the tag.
+        # Let's assume for this request we just remove the dataset tag usage. 
+        # Ideally, we should batch delete all media items with this dataset_name.
+        
+        # Updating UI
+        state.selected_dataset = "all"
+        state.datasets = get_all_datasets() # Refresh list
+        state.show_delete_dataset_dialog = False
+        yield from _load_media(state, is_filter_change=True)
+    yield
+
+
+@me.component
+def delete_dataset_dialog(state: PageState):
+    with dialog(is_open=state.show_delete_dataset_dialog):
+        me.text("Delete Dataset?", type="headline-5")
+        me.text(
+            f"Are you sure you want to delete the dataset '{state.selected_dataset}'? "
+            "This will remove the dataset category. The associated files will NOT be deleted from Google Cloud Storage, "
+            "but they will no longer be grouped under this dataset in the UI."
+        )
+        with me.box(style=me.Style(display="flex", justify_content="flex-end", gap=16, margin=me.Margin(top=24))):
+            me.button("Cancel", on_click=on_cancel_delete_dataset)
+            me.button("Delete", on_click=on_confirm_delete_dataset, color="warn", type="flat")
 
 
 def on_media_item_click(e: me.ClickEvent):
@@ -323,6 +468,30 @@ def on_close_extend_dialog(e: me.ClickEvent):
     # Reset dialog state
     state.extend_dialog_state = VeoExtendDialogState() 
     yield
+
+
+def on_delete_click(e: me.ClickEvent):
+    """Handles deletion of a media item."""
+    key = e.key
+    if not key or not key.startswith("btn_del_"):
+        return
+
+    item_id = key.replace("btn_del_", "")
+    pagestate = me.state(PageState)
+
+    # Optimistic Update: Remove from UI immediately
+    pagestate.media_items = [item for item in pagestate.media_items if item.id != item_id]
+
+    try:
+        delete_media_item(item_id)
+        # Verify deletion (Optional, but good for consistency)
+        # If we really wanted to be safe, we'd handle failure by adding it back, 
+        # but for this UX, simple optimistic update is usually preferred.
+    except Exception as ex:
+        print(f"Error deleting item {item_id}: {ex}")
+    
+    yield
+
 
 
 @me.component

@@ -167,15 +167,7 @@
       "mode": ["image", "video"],
       "description": "Create consistent characters across multiple images and videos."
     },
-    {
-      "id": 56,
-      "display": "Shop the Look",
-      "icon": "shopping_bag",
-      "route": "/shop_the_look",
-      "group": "workflows",
-      "mode": ["image", "video"],
-      "description": "Create a 'shop the look' experience from a model and clothing."
-    },
+
     {
       "id": 57,
       "display": "Interior Design",

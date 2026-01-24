@@ -10,7 +10,7 @@ from components.cartoon.dataset_uploader import dataset_uploader
 from components.image_thumbnail import image_thumbnail
 from common.metadata import get_all_datasets, add_media_item, MediaItem, delete_media_item
 from state.state import AppState
-from models.cartoon import analyze_conte, generate_cartoon_frame
+from models.cartoon import analyze_conte, generate_cartoon_frame, analyze_dataset_style
 
 @dataclass
 class CartoonProDetails:
@@ -243,13 +243,33 @@ def on_generate_click(e: me.ClickEvent):
     yield
 
     try:
-        # 1. Analyze Conte
-        description = analyze_conte(state.conte_image_gcs_uri)
+        # 1. Analyze Dataset Style First
+        # Collect URIs from current dataset items to use as style reference
+        reference_uris = []
+        for item in state.dataset_items:
+             if item.gcsuri:
+                 reference_uris.append(item.gcsuri)
+             elif item.gcs_uris:
+                 reference_uris.append(item.gcs_uris[0])
+        
+        # Analyze style immediately to use in sketch interpretation
+        style_description = analyze_dataset_style(state.selected_dataset, reference_image_uris=reference_uris)
+        
+        # 2. Analyze Conte (with Style Context)
+        description = analyze_conte(state.conte_image_gcs_uri, style_description=style_description)
         print(f"Cartoon Pro Analysis: {description}")
-        state.prompt = description # For debug/display
+        
+        # Display the full logic to the user
+        state.prompt = f"**Detected Style:**\n{style_description}\n\n**Scene Analysis:**\n{description}"
 
-        # 2. Generate Frame
-        generated_gcs_uri = generate_cartoon_frame(description, state.selected_dataset)
+        # 3. Generate Frame
+        # Pass these references and style to the generation function
+        generated_gcs_uri = generate_cartoon_frame(
+            description, 
+            state.selected_dataset, 
+            reference_image_uris=reference_uris,
+            style_description=style_description
+        )
         
         if generated_gcs_uri:
             state.generated_image_uri = create_display_url(generated_gcs_uri)

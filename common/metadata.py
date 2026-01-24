@@ -475,7 +475,8 @@ def get_media_for_page(
              query = query.where("dataset_name", "==", filter_by_dataset)
 
         if sort_by_timestamp:
-            query = query.order_by("timestamp", direction=firestore.Query.DESCENDING)
+            # query = query.order_by("timestamp", direction=firestore.Query.DESCENDING)
+            pass
 
         all_docs = list(query.limit(fetch_limit).stream())
         logger.info(f"[get_media_for_page] Fetched {len(all_docs)} total documents from Firestore (Dataset: {filter_by_dataset}).")
@@ -698,3 +699,15 @@ def delete_media_item(item_id: str):
         logger.info(f"Deleted media item with ID: {item_id}")
     except Exception as e:
         logger.error(f"Error deleting media item {item_id}: {e}")
+
+
+def delete_dataset(dataset_name: str):
+    """Deletes a dataset metadata from Firestore."""
+    if not db or not dataset_name:
+        return
+
+    try:
+        db.collection("genmedia_datasets").document(dataset_name).delete()
+        logger.info(f"Deleted dataset '{dataset_name}'")
+    except Exception as e:
+        logger.error(f"Error deleting dataset '{dataset_name}': {e}")

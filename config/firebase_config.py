@@ -28,12 +28,17 @@ class FirebaseClient:
         return cls._instance
 
     def _initialize(self, database_id: Optional[str] = None):
+        from config.default import Default
+        project_id = Default.PROJECT_ID
+
         try:
             cred = credentials.ApplicationDefault()
-            firebase_admin.initialize_app(cred)
-            print(f"[FirebaseClient] - initiating firebase client with `{database_id}`")
+            firebase_admin.initialize_app(cred, {"projectId": project_id})
+            print(f"[FirebaseClient] - initiating firebase client with `{database_id}` for project `{project_id}`")
         except ValueError:
             print("[FirebaseClient] - Firebase already initialized.")
+        
+        # Explicitly pass project to ensure checking the correct project
         self._client = firestore.client(database_id=database_id)
 
     def get_client(self):

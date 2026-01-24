@@ -49,7 +49,7 @@ Current featureset
 - Video: Veo 2, Veo 3
 - Music: Lyria
 - Speech: Chirp 3 HD, Gemini Text to Speech
-- Workflows: Character Consistency, Shop the Look, Starter Pack Moodboard, Interior Designer, Cartoon Pro
+- Workflows: Character Consistency, Starter Pack Moodboard, Interior Designer, Cartoon Pro
 - Asset Library
 
 This is built using [Mesop](https://mesop-dev.github.io/mesop/), an open source Python framework used at Google for rapid AI app development, and the [scaffold for Studio style apps](https://github.com/ghchinoy/studio-scaffold).
@@ -295,7 +295,7 @@ Gearframe Creative Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chi
 - 비디오: Veo 2, Veo 3
 - 음악: Lyria
 - 음성: Chirp 3 HD, Gemini Text to Speech
-- 워크플로: 캐릭터 일관성, 샵 더 룩(Shop the Look), 스타터 팩 무드보드, 인테리어 디자이너, Cartoon Pro
+- 워크플로: 캐릭터 일관성, 스타터 팩 무드보드, 인테리어 디자이너, Cartoon Pro
 - 자산 라이브러리
 
 이 애플리케이션은 Google에서 빠른 AI 앱 개발을 위해 사용하는 오픈 소스 Python 프레임워크인 [Mesop](https://mesop-dev.github.io/mesop/)과 [Studio 스타일 앱용 스캐폴드](https://github.com/ghchinoy/studio-scaffold)를 사용하여 구축되었습니다.
