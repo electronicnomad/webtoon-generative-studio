@@ -37,6 +37,18 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [Contributing changes](#contributing-changes)
   - [Licensing](#licensing)
 
+
+## Vertex AI Creative Studio, Differences from
+
+The differences with Vertex AI Creative Studio are as follows:
+
+- The foundation has been fully accepted.
+- At the source level, unnecessary directories and files, such as those applicable for experimental purposes, have been deleted.
+- The following parts have been added to Workflows:
+  - Storyboard, Storyboard Pro, Cartoon, Cartoon Pro
+- Shop the Look has been removed from Workflows.
+- Multi-user support: Users with different domain email addresses can also be registered and operated.
+
 ## Gearframe Creative Studio
 
 > **Browser Compatibility:** For the best experience, we recommend using Google Chrome. Some features may not work as expected on other browsers, such as Safari or Firefox.
@@ -49,7 +61,7 @@ Current featureset
 - Video: Veo 2, Veo 3
 - Music: Lyria
 - Speech: Chirp 3 HD, Gemini Text to Speech
-- Workflows: Character Consistency, Starter Pack Moodboard, Interior Designer, Cartoon Pro
+- Workflows: Storyboard, Cartoon, Character Consistency, Starter Pack Moodboard, Interior Designer, ...
 - Asset Library
 
 This is built using [Mesop](https://mesop-dev.github.io/mesop/), an open source Python framework used at Google for rapid AI app development, and the [scaffold for Studio style apps](https://github.com/ghchinoy/studio-scaffold).
@@ -250,7 +262,7 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 
 # Gearframe Creative Studio
 
-A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
+Vertex AI Creative Studio의 사용자 정의 포크 https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio
 
 > ###### _방문해 주셔서 감사합니다. 본 프로젝트는 Google의 공식 제품이 아님을 정중히 알려드립니다. 이 프로젝트는 커뮤니티에 의해 유지보수되며, [Google 오픈소스 소프트웨어 취약점 보상 프로그램](https://bughunters.google.com/open-source-security)의 대상이 아닙니다. 실험 및 데모 목적으로 제작되었으므로, 프로덕션 환경에서의 사용은 권장하지 않습니다._
 
@@ -283,6 +295,19 @@ A customized fork of Vertex AI Creative Studio https://github.com/GoogleCloudPla
   - [변경 사항 기여](#변경-사항-기여)
   - [라이선스](#라이선스)
 
+## Vertex AI Creative Studio와 다른 점
+
+- Foundation은 그대로 수용했습니다. 
+- 소스 수준에서는 시험적으로 적용 가능한 부분 등 불필요한 디렉토리와 파일들을 삭제했습니다.
+- Workflows에서 다음의 부분을 추가했습니다.
+  - Storyboard: 상황을 제시하면 만화(웹툰)나 애니메이션을 작성할 수 있는 스토리보드를 작성합니다.
+  - Storyboard Pro: 스토리보드를 이미지와 짧은 영상으로 만들어 줍니다.
+  - Cartoon: 제시하는 상황에 맞게 만화(웹툰)을 작성합니다.
+  - Cartoon Pro: 라이브러리에 업로드된 데이터를 참조하여 제시하는 콘티(이미지)에 따라 만화(웹툰)을 작성합니다. 그 때 콘티에 적색(red color)로 된 부분 문자와 그림을 지시(어)로 판단하여 의도하는 결과물을 보다 손쉽게 만들 수 있습니다.
+- Workflows 하위, Shop th Look을 삭제했습니다.
+- 다중 사용자를 지원합니다. 
+  - 서로 다른 Domain을 가지는 메일 주소의 사용자도 등록 운영할 수 있습니다.
+
 ## Gearframe Creative Studio
 
 > **브라우저 호환성:** 최상의 경험을 위해 Google Chrome을 사용하는 것을 권장합니다. Safari나 Firefox와 같은 다른 브라우저에서는 일부 기능이 예상대로 작동하지 않을 수 있습니다.
@@ -295,7 +320,7 @@ Gearframe Creative Studio는 Google Cloud의 생성형 미디어(Veo, Lyria, Chi
 - 비디오: Veo 2, Veo 3
 - 음악: Lyria
 - 음성: Chirp 3 HD, Gemini Text to Speech
-- 워크플로: 캐릭터 일관성, 스타터 팩 무드보드, 인테리어 디자이너, Cartoon Pro
+- 워크플로: 스토리보드, 카툰, 릭터 일관성, 스타터 팩 무드보드, 인테리어 디자인 등
 - 자산 라이브러리
 
 이 애플리케이션은 Google에서 빠른 AI 앱 개발을 위해 사용하는 오픈 소스 Python 프레임워크인 [Mesop](https://mesop-dev.github.io/mesop/)과 [Studio 스타일 앱용 스캐폴드](https://github.com/ghchinoy/studio-scaffold)를 사용하여 구축되었습니다.
