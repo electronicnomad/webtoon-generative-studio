@@ -304,7 +304,7 @@ Vertex AI Creative Studio의 사용자 정의 포크 https://github.com/GoogleCl
   - Storyboard Pro: 스토리보드를 이미지와 짧은 영상으로 만들어 줍니다.
   - Cartoon: 제시하는 상황에 맞게 만화(웹툰)을 작성합니다.
   - Cartoon Pro: 라이브러리에 업로드된 데이터를 참조하여 제시하는 콘티(이미지)에 따라 만화(웹툰)을 작성합니다. 그 때 콘티에 적색(red color)로 된 부분 문자와 그림을 지시(어)로 판단하여 의도하는 결과물을 보다 손쉽게 만들 수 있습니다.
-- Workflows 하위, Shop th Look을 삭제했습니다.
+- Workflows 하위, Shop the Look을 삭제했습니다.
 - 다중 사용자를 지원합니다. 
   - 서로 다른 Domain을 가지는 메일 주소의 사용자도 등록 운영할 수 있습니다.
 
