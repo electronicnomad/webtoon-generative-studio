@@ -26,7 +26,8 @@ class PageState:
     conte_image_uri: str = ""
     conte_image_gcs_uri: str = ""
     generated_image_uri: str = ""
-    prompt: str = ""
+    prompt: str = "" # Output display prompt
+    user_input_prompt: str = "" # User input prompt
 
     
 def on_delete_item_from_event(e: me.ClickEvent):
@@ -81,6 +82,10 @@ def on_dataset_change(e: me.SelectSelectionChangeEvent):
     state = me.state(PageState)
     state.selected_dataset = e.value
     _load_dataset_items(state)
+
+def on_user_prompt_input(e: me.InputEvent):
+    state = me.state(PageState)
+    state.user_input_prompt = e.value
 
 def _load_dataset_items(state):
     # Load thumbnails for the selected dataset
@@ -186,15 +191,24 @@ def page():
                         me.text("No reference images found.", style=me.Style(color="gray", font_size=12, font_style="italic"))
 
 
-
-                    
                     # Collapsible or Separate Section for Uploading New Assets
                     with me.expansion_panel(title="Manage Datasets & Assets"):
                         dataset_uploader()
                     
                     me.divider()
                     
-                    me.text("2. Upload Conte (Sketch)", type="headline-6")
+                    me.text("2. Context & Input (Optional)", type="headline-6")
+                    
+                    me.text("Add a text prompt to guide the generation (scenes, actions, mood):", style=me.Style(font_size=14, color="#555"))
+                    me.textarea(
+                        label="Enhance Prompt (Optional)",
+                        placeholder="e.g. 'A futuristic city skyline at sunset', 'Character is holding a glowing orb'",
+                        on_input=on_user_prompt_input,
+                        value=state.user_input_prompt,
+                        style=me.Style(width="100%", min_height=80)
+                    )
+
+                    me.text("Upload Conte (Sketch - Optional)", style=me.Style(font_weight="bold", margin=me.Margin(top=16)))
                     me.uploader(
                         label="Upload Sketch/Conte",
                         accepted_file_types=["image/jpeg", "image/png"],
@@ -214,7 +228,9 @@ def page():
                     else:
                         me.text(f"Active Dataset: {state.selected_dataset}")
                         # Placeholder for Generation UI
-                        disable_generate = not (state.selected_dataset and state.conte_image_uri)
+                        # Enable if dataset is selected AND (conte is uploaded OR prompt is provided)
+                        disable_generate = not (state.selected_dataset and (state.conte_image_uri or state.user_input_prompt))
+                        
                         me.button("Generate Cartoon", on_click=on_generate_click, type="flat", disabled=disable_generate)
                         
                         if state.is_loading:
@@ -236,7 +252,10 @@ def on_generate_click(e: me.ClickEvent):
     state = me.state(PageState)
     app_state = me.state(AppState)
     
-    if not state.selected_dataset or not state.conte_image_gcs_uri:
+    # Validation: Dataset + (Conte OR UserPrompt)
+    if not state.selected_dataset:
+        return
+    if not state.conte_image_gcs_uri and not state.user_input_prompt:
         return
 
     state.is_loading = True
@@ -256,7 +275,12 @@ def on_generate_click(e: me.ClickEvent):
         style_description = analyze_dataset_style(state.selected_dataset, reference_image_uris=reference_uris)
         
         # 2. Analyze Conte (with Style Context)
-        description = analyze_conte(state.conte_image_gcs_uri, style_description=style_description)
+        # Pass both conte (nullable) and user prompt
+        description = analyze_conte(
+            conte_uri=state.conte_image_gcs_uri, 
+            user_prompt=state.user_input_prompt,
+            style_description=style_description
+        )
         print(f"Cartoon Pro Analysis: {description}")
         
         # Display the full logic to the user
@@ -275,6 +299,10 @@ def on_generate_click(e: me.ClickEvent):
             state.generated_image_uri = create_display_url(generated_gcs_uri)
             
             # 3. Save to Library
+            source_images = []
+            if state.conte_image_gcs_uri:
+                source_images.append(state.conte_image_gcs_uri)
+
             add_media_item(
                 user_email=app_state.user_email,
                 gcsuri=generated_gcs_uri,
@@ -285,7 +313,7 @@ def on_generate_click(e: me.ClickEvent):
                 prompt=description,
                 comment="Generated via Cartoon Pro",
                 mode="cartoon_pro",
-                source_images_gcs=[state.conte_image_gcs_uri]
+                source_images_gcs=source_images
             )
             
     except Exception as ex:

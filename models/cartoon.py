@@ -8,9 +8,9 @@ from models.image_models import generate_images
 cfg = Default()
 client = GeminiModelSetup.init()
 
-def analyze_conte(conte_uri: str, style_description: str = None) -> str:
+def analyze_conte(conte_uri: str | None, user_prompt: str = "", style_description: str = None) -> str:
     """
-    Analyzes a conte/sketch image and generates a detailed visual description
+    Analyzes a conte/sketch image and/or user prompt and generates a detailed visual description
     suitable for image generation prompts.
     """
     model_name = cfg.GEMINI_IMAGE_GEN_MODEL # Or a specific vision model
@@ -18,11 +18,52 @@ def analyze_conte(conte_uri: str, style_description: str = None) -> str:
     
     style_context = ""
     if style_description:
-        style_context = f"\n    TARGET VISUAL STYLE:\n    {style_description}\n    \n    Interpret the sketch so that the character design and mood MATCH this target style."
+        style_context = f"\n    TARGET VISUAL STYLE:\n    {style_description}\n    \n    Interpret the request so that the character design and mood MATCH this target style."
+
+    # Case 1: Text Only
+    if not conte_uri:
+        if not user_prompt:
+            return ""
+        
+        prompt = f"""
+        You are an expert visual director. Your task is to write a detailed scene description for a high-quality illustration based on the user's request.
+        {style_context}
+        
+        USER REQUEST: "{user_prompt}"
+        
+        CRITICAL INSTRUCTIONS:
+        1. **Expand**: Expand the user's request into a full visual scene description (lighting, composition, posing, background).
+        2. **Style Consistency**: Ensure the description fits the TARGET VISUAL STYLE.
+        3. **Composition**: Describe the scene as a finished, professional shot.
+        
+        Output ONLY the visual description of the final scene.
+        """
+        
+        try:
+            with track_model_call(model_name=model_name, task="analyze_scene_text_only"):
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=[prompt],
+                    config=types.GenerateContentConfig(
+                        temperature=0.7, # Slightly higher for creativity in expansion
+                    )
+                )
+            return response.text
+        except Exception as e:
+            print(f"Error analyzing text prompt: {e}")
+            return user_prompt # Fallback to raw prompt
+
+    # Case 2: Image (with optional Text)
+    # If conte_uri is provided
+    
+    additional_context = ""
+    if user_prompt:
+        additional_context = f"\n    USER'S ADDITIONAL INSTRUCTIONS:\n    {user_prompt}\n    \n    incorporate these instructions into the scene description if they clarify the sketch."
 
     prompt = f"""
     You are an expert visual director. Your task is to interpret this ROUGH SKETCH (conte) and write a detailed scene description for a high-quality illustration.
     {style_context}
+    {additional_context}
 
     CRITICAL INSTRUCTIONS:
     1. **translate Stick Figures**: If the sketch shows stick figures or simple shapes, describe them as **real, fully-fleshed out characters** (e.g., "a young man in a business suit", "a woman in a coat"). DO NOT describe them as "stick figures", "sketches", or "drawings". Assume they are humans unless context implies otherwise.
@@ -37,7 +78,7 @@ def analyze_conte(conte_uri: str, style_description: str = None) -> str:
     try:
         conte_part = types.Part.from_uri(file_uri=conte_uri, mime_type="image/png")
         
-        with track_model_call(model_name=model_name, task="analyze_conte"):
+        with track_model_call(model_name=model_name, task="analyze_conte_visual"):
             response = client.models.generate_content(
                 model=model_name,
                 contents=[prompt, conte_part],
