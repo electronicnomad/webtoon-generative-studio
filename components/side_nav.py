@@ -98,7 +98,7 @@ def sidenav(current_page: Optional[str]):
                             me.icon(icon="menu")
                 if app_state.sidenav_open:
                     with me.box(on_click=on_click_title, style=me.Style(cursor="pointer")):
-                        me.text("CREATIVE STUDIO", style=_FANCY_TEXT_GRADIENT)
+                        me.text("WEBTOON STUDIO", style=_FANCY_TEXT_GRADIENT)
             
             me.box(style=me.Style(height=16)) # spacer
 
@@ -155,7 +155,7 @@ def menu_item(
     button_key = route if is_clickable else f"item_{item_id}"
 
     # List of custom icons that should use the svg_icon component
-    custom_icons = ["spark", "style", "scene", "menu_book"]
+    custom_icons = ["spark"]
 
     def render_icon(icon_name: str):
         if icon_name in custom_icons:

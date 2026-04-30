@@ -1390,7 +1390,7 @@ def on_load(e: me.LoadEvent):
 
 @me.page(
     path="/banana-studio",
-    title="Banana Studio - GenMedia Creative Studio",
+    title="Banana Studio - Gearframe Webtoon Studio",
     on_load=on_load,
 )
 def page():

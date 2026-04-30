@@ -86,7 +86,7 @@ def about_page_content():
 
 @me.page(
     path="/about",
-    title="About - Gearframe Creative Studio",
+    title="About - Gearframe Webtoon Studio",
 )
 def page():
     with page_scaffold(page_name="about"):  # pylint: disable=E1129:not-context-manager

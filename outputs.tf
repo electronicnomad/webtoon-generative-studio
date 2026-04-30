@@ -25,7 +25,7 @@ output "assets-bucket" {
 }
 
 output "cloud-run-app-url" {
-  value       = !var.use_lb ? "https://${google_cloud_run_v2_service.creative_studio.name}-${data.google_project.project.number}.${google_cloud_run_v2_service.creative_studio.location}.run.app" : ""
+  value       = !var.use_lb ? "https://${google_cloud_run_v2_service.webtoon_studio.name}-${data.google_project.project.number}.${google_cloud_run_v2_service.webtoon_studio.location}.run.app" : ""
   description = "The Cloud Run URL where the website can be reached."
 }
 
@@ -35,6 +35,6 @@ output "builds-service-account" {
 }
 
 output "application-service-account" {
-  value       = google_service_account.creative_studio.email
+  value       = google_service_account.webtoon_studio.email
   description = "Service Account used by the Creative Studio web application"
 }

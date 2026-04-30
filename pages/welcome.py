@@ -36,7 +36,7 @@ def on_tile_click(e: me.WebEvent):
 
 @me.page(
     path="/welcome",
-    title="Welcome - Gearframe Creative Studio",
+    title="Welcome - Gearframe Webtoon Studio",
 )
 def page():
     """Define the Mesop page route for the welcome page."""
@@ -55,7 +55,7 @@ def page():
     ]
 
     welcome_hero(
-        title="Gearframe Creative Studio",
+        title="Gearframe Webtoon Studio",
         subtitle="A customized fork of Vertex AI Creative Studio. Fuel your creativity with Google Cloud's generative media models and custom workflows.",
         # video_url="https://deepmind.google/api/blob/website/media/veo__cover_s0RKXWX.mp4", # Veo 2.0 backup
         video_url="https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/veo__page-cover-1_hcTy7l3.mp4",

@@ -90,6 +90,12 @@ variable "allow_local_domain_cors_requests" {
   default     = false
 }
 
+variable "enable_auth" {
+  description = "Whether to enable IAP authentication. If set to false, anyone with the URL can access the application (Open Mode)."
+  type        = bool
+  default     = true
+}
+
 variable "sleep_time" {
   description = "Amount of time to wait post service API enablement to allow for eventual consistency to trickly through GCP."
   type        = number

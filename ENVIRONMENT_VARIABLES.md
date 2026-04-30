@@ -164,7 +164,7 @@ To change a variable from **Group 3** (e.g., `GEMINI_IMAGE_GEN_MODEL`) when depl
 2.  **Modify `main.tf`:** Update the `locals` block to include the new environment variable mapping.
     ```hcl
     locals {
-      creative_studio_env_vars = {
+      webtoon_studio_env_vars = {
         # ... existing vars ...
         GEMINI_IMAGE_GEN_MODEL = var.gemini_image_model
       }
@@ -337,7 +337,7 @@ Terraform으로 배포할 때 **그룹 3**의 변수(예: `GEMINI_IMAGE_GEN_MODE
 2.  **`main.tf` 수정:** 새 환경 변수 매핑을 포함하도록 `locals` 블록을 업데이트합니다.
     ```hcl
     locals {
-      creative_studio_env_vars = {
+      webtoon_studio_env_vars = {
         # ... 기존 변수 ...
         GEMINI_IMAGE_GEN_MODEL = var.gemini_image_model
       }

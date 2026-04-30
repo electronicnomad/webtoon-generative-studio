@@ -35,7 +35,7 @@ from state.state import AppState
 
 @me.page(
     path="/storyboarder",
-    title="Storyboarder - GenMedia Creative Studio",
+    title="Storyboarder - Gearframe Webtoon Studio",
 )
 def page():
     with page_scaffold(page_name="storyboarder"):

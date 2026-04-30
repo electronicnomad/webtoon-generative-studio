@@ -2,9 +2,9 @@
 
 <a id="english"></a>
 
-# Deploying Gearframe Creative Studio
+# Deploying Gearframe Webtoon Studio
 
-Deployment of Gearframe Creative Studio is accomplished using a combination of **Terraform** and **Cloud Build**. Terraform is used to deploy the infrastructure and Cloud Build is used to create the container image and update the Cloud Run service.
+Deployment of Gearframe Webtoon Studio is accomplished using a combination of **Terraform** and **Cloud Build**. Terraform is used to deploy the infrastructure and Cloud Build is used to create the container image and update the Cloud Run service.
 
 You have two deployment options:
 
@@ -127,8 +127,40 @@ You can now access the application at your Cloud Run URL.
 
 ---
 
-## Updating the Application
+<a id="option-3"></a>
+## Option 3: Open Access Mode (No Authentication)
 
+Use this for public demos or internal showcases where you want users to access the studio instantly without signing in.
+
+### ⚠️ Warning: Cost & Security
+In this mode, **anyone with the URL** can use the studio and trigger generative AI models. This may lead to unexpected costs. Use with caution and set a budget alert on your project.
+
+### 1. Initialize Terraform
+
+Set `enable_auth = false`. You can combine this with either `use_lb = true` (Custom Domain) or `use_lb = false` (Cloud Run Domain).
+
+```bash
+cat > terraform.tfvars << EOF
+project_id    = "$PROJECT_ID"
+region        = "$REGION"
+enable_auth   = false
+use_lb        = false
+EOF
+
+terraform init
+terraform apply
+```
+
+### 2. Build and Deploy Application
+
+```bash
+./build.sh
+```
+
+---
+
+## Updating the Application
+...
 To deploy code changes (Python/CSS/JS) without changing infrastructure:
 
 ```bash
@@ -146,7 +178,7 @@ terraform apply
 
 ## User Management
 
-This section details how to add users to Gearframe Creative Studio.
+This section details how to add users to Gearframe Webtoon Studio.
 
 ### Scenario A: Adding Users from Same Domain (Internal)
 
@@ -190,9 +222,9 @@ If external users see **"Error Code 11"**, your OAuth Client ID configuration is
 
 <a id="korean"></a>
 
-# 기어프레임 크리에이티브 스튜디오 배포 (Deploying Gearframe Creative Studio)
+# 기어프레임 웹툰 스튜디오 배포 (Deploying Gearframe Webtoon Studio)
 
-Gearframe Creative Studio는 **Terraform**으로 인프라를 구축하고, **Cloud Build**로 애플리케이션을 배포합니다.
+Gearframe Webtoon Studio는 **Terraform**으로 인프라를 구축하고, **Cloud Build**로 애플리케이션을 배포합니다.
 
 두 가지 배포 옵션이 있습니다:
 
@@ -316,6 +348,38 @@ gcloud beta iap web add-iam-policy-binding \
 
 ---
 
+<a id="option-3-kor"></a>
+## 옵션 3: 오픈 액세스 모드 (인증 없는 배포)
+
+로그인 없이 누구나 즉시 웹툰 스튜디오에 접속할 수 있는 공개 데모나 사내 쇼케이스용 배포 방식입니다.
+
+### ⚠️ 주의: 비용 및 보안
+이 모드에서는 **URL을 아는 사람이라면 누구나** 스튜디오를 사용하고 생성형 AI 모델을 호출할 수 있습니다. 이는 예상치 못한 비용 발생으로 이어질 수 있으므로 주의해서 사용하시고, 프로젝트에 예산 알림을 설정하는 것을 권장합니다.
+
+### 1. Terraform 초기화 및 실행
+
+`enable_auth = false`로 설정합니다. 로드 밸런서 사용 여부와 상관없이 적용 가능합니다.
+
+```bash
+cat > terraform.tfvars << EOF
+project_id    = "$PROJECT_ID"
+region        = "$REGION"
+enable_auth   = false
+use_lb        = false
+EOF
+
+terraform init
+terraform apply
+```
+
+### 2. 애플리케이션 빌드 및 배포
+
+```bash
+./build.sh
+```
+
+---
+
 ## 애플리케이션 업데이트 (Updating)
 
 코드(Python, CSS, JS)만 변경되었을 때:
@@ -333,43 +397,31 @@ terraform apply
 
 <a id="사용자관리"></a>
 
-## 사용자 관리 (User Management)
+## 사용자 관리 및 인증 (User Management & Authentication)
 
-Gearframe Creative Studio에 사용자를 추가하는 절차입니다.
+Gearframe Webtoon Studio는 **Identity Aware Proxy (IAP)** 를 사용하여 액세스를 관리합니다. **개별 사용자** 또는 **도메인 전체**에 권한을 부여할 수 있습니다.
 
-### 시나리오 A: 같은 도메인 사용자 추가 (Internal)
+### 1. 개별 사용자 액세스 (기본값)
+특정 이메일 주소에만 권한을 부여합니다.
+- **방법:** `terraform.tfvars`의 `initial_users` 목록에 이메일을 추가합니다.
+- **예시:** `initial_users = ["user1@company.com", "user2@gmail.com"]`
 
-**사용 사례:** 같은 회사(`@yourcompany.com`) 사용자이며 프로젝트가 **내부(Internal)** 로 설정된 경우.
+### 2. 도메인 전체 액세스 (고급)
+특정 조직(예: `@company.com`의 모든 직원) 전체에 권한을 부여하고 싶을 때 사용합니다.
+- **명령어 예시:**
+  ```bash
+  gcloud beta iap web add-iam-policy-binding \
+      --project=$PROJECT_ID --region=$REGION \
+      --member="domain:company.com" \
+      --role="roles/iap.httpsResourceAccessor" \
+      --resource-type=cloud-run --service=creative-studio
+  ```
 
-1.  **`terraform.tfvars` 업데이트**: `initial_users` 목록에 이메일을 추가합니다.
-    ```hcl
-    initial_users = ["admin@example.com", "colleague@example.com"]
-    ```
-2.  **변경 사항 적용**:
-    ```bash
-    terraform apply
-    ```
+### 3. 다중 도메인 지원
+여러 개의 도메인(예: `company.com` 및 `partner.co.kr`)을 동시에 허용하려면 각 도메인에 대해 IAM 정책 바인딩을 별도로 추가하면 됩니다.
 
-### 시나리오 B: 다른 도메인 사용자 추가 (External)
-
-**사용 사례:** `@gmail.com` 등 외부 사용자이며 프로젝트가 **외부(External)** 로 설정된 경우.
-
-1.  **테스트 사용자 추가**:
-    *   **[API 및 서비스 > OAuth 동의 화면](https://console.cloud.google.com/apis/credentials/consent)** 으로 이동합니다.
-    *   **Test users** 아래 **+ ADD USERS** 를 클릭하여 이메일을 추가합니다.
-2.  **IAP 권한 부여**: 시나리오 A와 동일하게 `terraform.tfvars` 업데이트 후 `terraform apply`를 실행합니다.
-
-### 🚨 문제 해결: "Error Code 11"
-
-외부 사용자가 로그인 시 **"Error Code 11"**을 겪는다면, OAuth 클라이언트 설정 문제입니다.
-
-**해결 방법**: 새로운 External용 OAuth 클라이언트를 생성해야 합니다.
-
-1.  **새 클라이언트 생성**:
-    *   **[API 및 서비스 > 사용자 인증 정보](https://console.cloud.google.com/apis/credentials)** 로 이동합니다.
-    *   **OAuth 클라이언트 ID** > **웹 애플리케이션**을 생성합니다.
-    *   승인된 리디렉션 URI에 추가: `https://iap.googleapis.com/v1/oauth/clientIds/[새_클라이언트_ID]:handleRedirect`
-2.  **IAP 설정 업데이트**:
-    *   **[보안 > IAP](https://console.cloud.google.com/security/iap)** 로 이동합니다.
-    *   리소스 선택 > **연필 아이콘** 클릭 > **다른 OAuth 클라이언트 사용**.
-    *   새 ID와 Secret 입력.
+### 🚨 중요: OAuth 동의 화면 설정 (Internal vs External)
+- **내부(Internal) 모드:** **동일한** Google Workspace 조직 내의 사용자만 접근 가능합니다.
+- **외부(External) 모드:** **서로 다른 도메인**이나 일반 `@gmail.com` 사용자를 허용해야 할 때 반드시 필요합니다.
+- **문제 해결:** 외부 사용자가 **"Error Code 11"**을 겪는다면 OAuth 클라이언트가 "내부"용으로 생성된 것입니다. "외부"용 OAuth 클라이언트를 새로 생성하여 IAP 설정을 업데이트하세요.
+ ID와 Secret 입력.

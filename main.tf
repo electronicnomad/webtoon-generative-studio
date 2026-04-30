@@ -91,8 +91,8 @@ resource "google_iap_web_iam_member" "initial_user_iap_access" {
 }
 
 resource "google_cloud_run_service_iam_member" "iap_cloudrun_access" {
-  location = google_cloud_run_v2_service.creative_studio.location
-  service  = google_cloud_run_v2_service.creative_studio.name
+  location = google_cloud_run_v2_service.webtoon_studio.location
+  service  = google_cloud_run_v2_service.webtoon_studio.name
   role     = "roles/run.invoker"
   member   = google_project_service_identity.iap_sa.member
 }
@@ -101,7 +101,7 @@ module "lb-http" {
   count                           = var.use_lb ? 1 : 0
   source                          = "terraform-google-modules/lb-http/google//modules/serverless_negs"
   version                         = "~>13.0"
-  name                            = "creativestudio"
+  name                            = "webtoonstudio"
   project                         = var.project_id
   load_balancing_scheme           = "EXTERNAL_MANAGED"
   ssl                             = var.use_lb
@@ -117,7 +117,7 @@ module "lb-http" {
         }
       ]
       iap_config = {
-        enable = true
+        enable = var.enable_auth
       }
       log_config = {
         enable = true
@@ -127,13 +127,21 @@ module "lb-http" {
   depends_on = [null_resource.sleep]
 }
 
+resource "google_cloud_run_v2_service_iam_member" "public_access" {
+  count    = var.enable_auth ? 0 : 1
+  location = google_cloud_run_v2_service.webtoon_studio.location
+  service  = google_cloud_run_v2_service.webtoon_studio.name
+  role     = "roles/run.invoker"
+  member   = "allUsers"
+}
+
 resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
   count                 = var.use_lb ? 1 : 0
   name                  = "cloudrun-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
   cloud_run {
-    service = google_cloud_run_v2_service.creative_studio.name
+    service = google_cloud_run_v2_service.webtoon_studio.name
   }
   depends_on = [null_resource.sleep]
 }
@@ -142,14 +150,14 @@ resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
 *  Runtime Resources Section
 *********************************************/
 
-resource "google_service_account" "creative_studio" {
-  account_id = "service-creative-studio"
+resource "google_service_account" "webtoon_studio" {
+  account_id = "service-webtoon-studio"
 }
 
 # Centralizing environment variables here and using for each in service declaration for simplicity
 locals {
-  asset_bucket_name = "creative-studio-${var.project_id}-assets"
-  creative_studio_env_vars = {
+  asset_bucket_name = "webtoon-studio-${var.project_id}-assets"
+  webtoon_studio_env_vars = {
     PROJECT_ID            = var.project_id
     LOCATION              = var.region
     MODEL_ID              = var.model_id
@@ -163,29 +171,29 @@ locals {
     IMAGE_BUCKET          = local.asset_bucket_name
     GCS_ASSETS_BUCKET     = local.asset_bucket_name
     GENMEDIA_FIREBASE_DB  = google_firestore_database.create_studio_asset_metadata.name
-    SERVICE_ACCOUNT_EMAIL = google_service_account.creative_studio.email
+    SERVICE_ACCOUNT_EMAIL = google_service_account.webtoon_studio.email
     EDIT_IMAGES_ENABLED   = var.edit_images_enabled
   }
 
-  deployed_domain = var.use_lb ? ["https://${var.domain}"] : google_cloud_run_v2_service.creative_studio.urls
+  deployed_domain = var.use_lb ? ["https://${var.domain}"] : google_cloud_run_v2_service.webtoon_studio.urls
   cors_domains    = concat(local.deployed_domain, var.allow_local_domain_cors_requests ? ["http://localhost:8080", "http://0.0.0.0:8080"] : [])
 }
 
-resource "google_cloud_run_v2_service" "creative_studio" {
+resource "google_cloud_run_v2_service" "webtoon_studio" {
   provider             = google-beta
-  name                 = "creative-studio"
+  name                 = "webtoon-studio"
   location             = var.region
   project              = var.project_id
   ingress              = var.use_lb ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL"
   default_uri_disabled = var.use_lb
   deletion_protection  = false
-  iap_enabled          = !var.use_lb
-  invoker_iam_disabled = !var.use_lb
+  iap_enabled          = var.enable_auth && !var.use_lb
+  invoker_iam_disabled = var.enable_auth && !var.use_lb
   launch_stage         = var.use_lb ? "GA" : "BETA"
 
   template {
     containers {
-      name  = "creative-studio"
+      name  = "webtoon-studio"
       image = var.initial_container_image
       resources {
         limits = {
@@ -194,14 +202,14 @@ resource "google_cloud_run_v2_service" "creative_studio" {
         }
       }
       dynamic "env" {
-        for_each = local.creative_studio_env_vars
+        for_each = local.webtoon_studio_env_vars
         content {
           name  = env.key
           value = env.value
         }
       }
     }
-    service_account = google_service_account.creative_studio.email
+    service_account = google_service_account.webtoon_studio.email
     scaling {
       max_instance_count = 1
     }
@@ -210,7 +218,7 @@ resource "google_cloud_run_v2_service" "creative_studio" {
     ignore_changes = [template[0].containers[0].image, client, client_version]
   }
   depends_on = [
-    google_service_account_iam_member.build_act_as_creative_studio,
+    google_service_account_iam_member.build_act_as_webtoon_studio,
     google_project_iam_member.build_logs_writer,
     null_resource.sleep
   ]
@@ -258,31 +266,31 @@ resource "google_storage_bucket_iam_member" "admins" {
 resource "google_storage_bucket_iam_member" "creators" {
   bucket = google_storage_bucket.assets.name
   role   = "roles/storage.objectCreator"
-  member = google_service_account.creative_studio.member
+  member = google_service_account.webtoon_studio.member
 }
 
 resource "google_storage_bucket_iam_member" "viewers" {
   bucket = google_storage_bucket.assets.name
   role   = "roles/storage.objectViewer"
-  member = google_service_account.creative_studio.member
+  member = google_service_account.webtoon_studio.member
 }
 
 resource "google_storage_bucket_iam_member" "sa_bucket_viewer" {
   bucket = google_storage_bucket.assets.name
   role   = "roles/storage.bucketViewer"
-  member = google_service_account.creative_studio.member
+  member = google_service_account.webtoon_studio.member
 }
 
 resource "google_storage_bucket_iam_member" "sa_object_user" {
   bucket = google_storage_bucket.assets.name
   role   = "roles/storage.objectUser"
-  member = google_service_account.creative_studio.member
+  member = google_service_account.webtoon_studio.member
 }
 
-resource "google_project_iam_member" "creative_studio_sa_token_creator" {
+resource "google_project_iam_member" "webtoon_studio_sa_token_creator" {
   project = var.project_id
   role    = "roles/iam.serviceAccountTokenCreator"
-  member  = google_service_account.creative_studio.member
+  member  = google_service_account.webtoon_studio.member
 }
 
 resource "google_firestore_database" "create_studio_asset_metadata" {
@@ -368,20 +376,20 @@ resource "google_firestore_index" "genmedia_user_email_mime_type_timestamp" {
   }
 }
 
-resource "google_project_iam_member" "creative_studio_db_access" {
+resource "google_project_iam_member" "webtoon_studio_db_access" {
   project = var.project_id
   role    = "roles/datastore.user"
-  member  = google_service_account.creative_studio.member
+  member  = google_service_account.webtoon_studio.member
   condition {
     title      = "Access to Create Studio Asset Metadata DB"
     expression = "resource.name==\"${google_firestore_database.create_studio_asset_metadata.id}\""
   }
 }
 
-resource "google_project_iam_member" "creative_studio_vertex_access" {
+resource "google_project_iam_member" "webtoon_studio_vertex_access" {
   project = var.project_id
   role    = "roles/aiplatform.user"
-  member  = google_service_account.creative_studio.member
+  member  = google_service_account.webtoon_studio.member
 }
 
 /********************************************
@@ -389,11 +397,11 @@ resource "google_project_iam_member" "creative_studio_vertex_access" {
 *********************************************/
 
 resource "google_service_account" "cloudbuild" {
-  account_id = "builds-creative-studio"
+  account_id = "builds-webtoon-studio"
 }
 
-resource "google_service_account_iam_member" "build_act_as_creative_studio" {
-  service_account_id = google_service_account.creative_studio.name
+resource "google_service_account_iam_member" "build_act_as_webtoon_studio" {
+  service_account_id = google_service_account.webtoon_studio.name
   role               = "roles/iam.serviceAccountUser"
   member             = google_service_account.cloudbuild.member
 }
@@ -426,8 +434,8 @@ module "source_bucket" {
   depends_on               = [null_resource.sleep]
 }
 
-resource "google_artifact_registry_repository" "creative_studio" {
-  repository_id = "creative-studio"
+resource "google_artifact_registry_repository" "webtoon_studio" {
+  repository_id = "webtoon-studio"
   description   = "Docker repository for GenMedia Creative Studio related images"
   format        = "DOCKER"
   vulnerability_scanning_config {
@@ -437,20 +445,20 @@ resource "google_artifact_registry_repository" "creative_studio" {
 }
 
 resource "google_artifact_registry_repository_iam_member" "readers" {
-  repository = google_artifact_registry_repository.creative_studio.name
+  repository = google_artifact_registry_repository.webtoon_studio.name
   role       = "roles/artifactregistry.reader"
   member     = google_service_account.cloudbuild.member
 }
 
 resource "google_artifact_registry_repository_iam_member" "writers" {
-  repository = google_artifact_registry_repository.creative_studio.name
+  repository = google_artifact_registry_repository.webtoon_studio.name
   role       = "roles/artifactregistry.writer"
   member     = google_service_account.cloudbuild.member
 }
 
 resource "google_cloud_run_service_iam_member" "build_service" {
-  location = google_cloud_run_v2_service.creative_studio.location
-  service  = google_cloud_run_v2_service.creative_studio.name
+  location = google_cloud_run_v2_service.webtoon_studio.location
+  service  = google_cloud_run_v2_service.webtoon_studio.name
   role     = "roles/run.developer"
   member   = google_service_account.cloudbuild.member
 }

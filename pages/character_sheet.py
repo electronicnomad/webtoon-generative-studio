@@ -29,7 +29,7 @@ from state.state import AppState
 
 @me.page(
     path="/character_sheet",
-    title="Character Sheet - GenMedia Creative Studio",
+    title="Character Sheet - Gearframe Webtoon Studio",
 )
 def page():
     with page_scaffold(page_name="character_sheet"): # pylint: disable=E1129:not-context-manager

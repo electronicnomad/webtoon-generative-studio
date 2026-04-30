@@ -2,7 +2,7 @@
 
 <a id="english"></a>
 
-# Gearframe Creative Studio: Veo 2 module Tutorial
+# Gearframe Webtoon Studio: Veo 2 module Tutorial
 
 ## Welcome!
 
@@ -81,7 +81,7 @@ If you get an error that `/` is not found, navigate to `/home`
 
 <a id="korean"></a>
 
-# Gearframe Creative Studio: Veo 2 모듈 튜토리얼 (Tutorial)
+# Gearframe Webtoon Studio: Veo 2 모듈 튜토리얼 (Tutorial)
 
 ## 환영합니다!
 

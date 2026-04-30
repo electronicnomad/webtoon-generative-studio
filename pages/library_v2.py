@@ -174,7 +174,7 @@ def on_dataset_filter_change(e: me.SelectSelectionChangeEvent):
 
 @me.page(
     path="/library_v2",
-    title="GenMedia Creative Studio - Library",
+    title="Gearframe Webtoon Studio - Library",
     on_load=on_load,
 )
 def page():

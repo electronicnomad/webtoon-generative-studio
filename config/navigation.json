@@ -8,93 +8,16 @@
       "description": "The home page of the application."
     },
     {
-      "id": 6,
-      "display": "Imagen",
-      "icon": "image",
-      "route": "/imagen",
-      "group": "foundation",
-      "mode": "image",
-      "description": "Generate images from text prompts using Imagen.",
-      "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/imagen__page_cover.mp4"
-    },
-
-    {
-      "id": 8,
-      "display": "Edit Images",
-      "icon": "edit",
-      "route": "/edit_images",
-      "group": "foundation",
-      "mode": "image",
-      "feature_flag": "EDIT_IMAGES_ENABLED",
-      "description": "Edit images using inpainting and outpainting."
-    },
-    {
-      "id": 10,
-      "display": "Veo",
-      "icon": "movie_filter",
-      "route": "/veo",
-      "group": "foundation",
-      "mode": "video",
-      "description": "Generate videos from text or image prompts using Veo.",
-      "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/veo__cover_s0RKXWX.mp4"
-    },
-    {
       "id": 12,
-      "display": "Gemini Image Generation",
+      "display": "Banana Studio",
       "icon": "spark",
       "icon_family": "Google Symbols",
-      "route": "/nano-banana",
+      "route": "/banana-studio",
       "group": "foundation",
       "mode": "image",
-      "description": "Generate images from text prompts using Gemini.",
+      "description": "Fast webtoon concept generation with Nano Banana.",
       "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/gemini-image__page-cover.mp4"
     },
-    {
-      "id": 14,
-      "display": "Gemini TTS",
-      "icon": "spark",
-      "route": "/gemini-tts",
-      "group": "foundation",
-      "mode": "speech",
-      "description": "Gemini's latest Text to Speech mode",
-      "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/lyria_header.mp4",
-      "video_object_position": "bottom"
-    },
-    {
-      "id": 15,
-      "display": "Chirp 3 HD",
-      "icon": "graphic_eq",
-      "route": "/chirp-3hd",
-      "group": "foundation",
-      "mode": "speech",
-      "description": "Generate high-definition speech from text using Chirp 3.",
-      "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/lyria_realtime_header.mp4",
-      "video_object_position": "bottom"
-    },
-    {
-      "id": 20,
-      "display": "Lyria",
-      "icon": "music_note",
-      "route": "/lyria",
-      "group": "foundation",
-      "feature_flag": "LYRIA_PROJECT_ID",
-      "mode": "music",
-      "description": "Generate music from text prompts using Lyria.",
-      "video_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/lyria_header.mp4",
-      "video_object_position": "bottom"
-    },
-    {
-      "id": 25,
-      "display": "Gemini",
-      "icon": "spark",
-      "route": "/gemini-writers-workshop",
-      "group": "foundation",
-      "mode": "text",
-      "description": "Collaborate with Gemini in the Writers Workshop",
-      "video_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/capability__native-audio_16-9.mp4",
-      "video_object_position": "bottom"
-    },
-
     {
       "id": 31,
       "display": "Storyboard",
@@ -111,7 +34,7 @@
       "route": "/storyboarder",
       "group": "workflows",
       "mode": "video",
-      "description": "Create video storyboards with Veo."
+      "description": "Create visual storyboards."
     },
     {
       "id": 33,
@@ -120,7 +43,7 @@
       "route": "/cartoon",
       "group": "workflows",
       "mode": "image",
-      "description": "Create cartoons with Nano Banana Pro."
+      "description": "Create cartoons from text descriptions."
     },
     {
       "id": 34,
@@ -129,34 +52,7 @@
       "route": "/cartoon_pro",
       "group": "workflows",
       "mode": "image",
-      "description": "Advanced cartoon generation with dataset consistency."
-    },
-    {
-      "id": 35,
-      "display": "Starter Pack",
-      "icon": "style",
-      "route": "/starter-pack",
-      "group": "workflows",
-      "mode": "image",
-      "description": "Generate a starter pack of images for a concept."
-    },
-    {
-      "id": 40,
-      "display": "Product in Scene",
-      "icon": "scene",
-      "route": "/recontextualize",
-      "group": "workflows",
-      "mode": "image",
-      "description": "Place a product in a generated scene."
-    },
-    {
-      "id": 50,
-      "display": "Motion Portraits",
-      "icon": "portrait",
-      "route": "/motion_portraits",
-      "group": "workflows",
-      "mode": "video",
-      "description": "Create animated portraits from a still image."
+      "description": "Advanced cartoon generation with sketch(conti) recognition."
     },
     {
       "id": 55,
@@ -165,35 +61,7 @@
       "route": "/character_consistency",
       "group": "workflows",
       "mode": ["image", "video"],
-      "description": "Create consistent characters across multiple images and videos."
-    },
-
-    {
-      "id": 57,
-      "display": "Interior Design",
-      "icon": "chair",
-      "route": "/interior_design",
-      "group": "workflows",
-      "mode": "image",
-      "description": "Generate 3D views from floor plans."
-    },
-    {
-      "id": 60,
-      "display": "Object Rotation",
-      "icon": "360",
-      "route": "/object-rotation",
-      "group": "workflows",
-      "feature_flag": "EDIT_IMAGES_ENABLED",
-      "description": "Create 360-degree product videos from a single image."
-    },
-    {
-      "id": 65,
-      "display": "Virtual Try-On",
-      "icon": "checkroom",
-      "route": "/vto",
-      "group": "workflows",
-      "mode": ["video", "image"],
-      "description": "Virtually try on clothing items."
+      "description": "Create consistent characters across multiple webtoon scenes."
     },
     {
       "id": 70,
@@ -201,26 +69,7 @@
       "icon": "perm_media",
       "route": "/library_v2",
       "group": "studio",
-      "description": "Browse your generated media."
-    },
-    {
-      "id": 80,
-      "display": "Pixie Compositor",
-      "icon": "auto_fix_high",
-      "route": "/pixie_compositor",
-      "group": "studio",
-      "mode": ["image", "video"],
-      "description": "Pixie helps you combine generative media."
-    },
-    {
-      "id": 85,
-      "display": "Labs",
-      "icon": "science",
-      "route": "/labs",
-      "group": "studio",
-      "align": "bottom",
-      "mode": ["image", "video"],
-      "description": "Odd things are bubbling."
+      "description": "Browse and manage your webtoon assets."
     },
     {
       "id": 95,
@@ -229,7 +78,7 @@
       "route": "/about",
       "align": "bottom",
       "group": "studio",
-      "description": "Information about GenMedia Creative Studio."
+      "description": "Information about Gearframe Webtoon Studio."
     },
     {
       "id": 99,
@@ -240,6 +89,5 @@
       "group": "studio",
       "description": "Configure application settings."
     }
-
   ]
 }
