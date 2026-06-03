@@ -12,7 +12,6 @@ This application is built using Python with the Mesop UI framework and a FastAPI
 
 - **`main.py`**: The entry point. Imports only the webtoon-focused pages.
 - **`pages/`**: Contains active webtoon production pages (Cartoon, Storyboard, Banana Studio, etc.).
-- **`archive_pages/`**: (New) Contains previously integrated general media pages (Veo, Lyria, etc.) that are currently inactive to keep the studio focused.
 - **`components/`**: Reusable UI components.
 - **`models/`**: Business logic for interacting with Gemini and Imagen models.
 - **`state/`**: State management using Mesop's `@me.stateclass`.

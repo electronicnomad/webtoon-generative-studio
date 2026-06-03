@@ -31,6 +31,9 @@ dist
 gha-creds-*.json
 .commit.txt
 .genkit/
+.claude/
+GEMINI.md
+CLAUDE.md
 
 # Backup & Archives
 *.tar.gz
