@@ -6,16 +6,15 @@
 
 ## Welcome!
 
-If you're seeing this, you've cloned the correct repository, and you should be in the `experiments/veo-app` directory! Let's get started.
+If you're seeing this, you've cloned the correct repository, and you should be in the `webtoon-generative-studio` directory! Let's get started.
 
-<walkthrough-project-setup></walkthrough-project-setup>
 
 ## First step: auth to your Google Cloud Project
 
 Type this command in the shell, substituting your project name
 
 ```bash
-gcloud config set project <walkthrough-project-name/>
+gcloud config set project YOUR_PROJECT_ID
 export PROJECT_ID=$(gcloud config get project)
 ```
 
@@ -39,16 +38,16 @@ gcloud firestore databases create --database="(default)" --location=nam5
 
 ### Google Cloud Storage bucket
 
-For the defaults, you should have a bucket named <walkthrough-project-name/>-assets, and you can check by doing this:
+For the defaults, you should have a bucket named YOUR_PROJECT_ID-assets, and you can check by doing this:
 
 ```bash
-gcloud storage ls gs://<walkthrough-project-name/>-assets
+gcloud storage ls gs://YOUR_PROJECT_ID-assets
 ```
 
 If you have one, great! If not, create one:
 
 ```bash
-gcloud storage buckets create -l us-central1 gs://<walkthrough-project-name/>-assets
+gcloud storage buckets create -l us-central1 gs://YOUR_PROJECT_ID-assets
 ```
 
 Notre
@@ -75,7 +74,6 @@ uv run main.py
 
 If you get an error that `/` is not found, navigate to `/home`
 
-<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
 
 ---
 
@@ -85,16 +83,15 @@ If you get an error that `/` is not found, navigate to `/home`
 
 ## 환영합니다!
 
-이 글을 보고 계시다면 올바른 리포지토리를 복제하셨으며, `experiments/veo-app` 디렉토리에 계실 것입니다! 시작해 봅시다.
+이 글을 보고 계시다면 올바른 리포지토리를 복제하셨으며, `webtoon-generative-studio` 디렉토리에 계실 것입니다! 시작해 봅시다.
 
-<walkthrough-project-setup></walkthrough-project-setup>
 
 ## 첫 번째 단계: Google Cloud 프로젝트 인증
 
 프로젝트 이름을 대체하여 쉘에 다음 명령을 입력하세요.
 
 ```bash
-gcloud config set project <walkthrough-project-name/>
+gcloud config set project YOUR_PROJECT_ID
 export PROJECT_ID=$(gcloud config get project)
 ```
 
@@ -118,16 +115,16 @@ gcloud firestore databases create --database="(default)" --location=nam5
 
 ### Google Cloud Storage 버킷
 
-기본적으로 `<walkthrough-project-name/>-assets`라는 이름의 버킷이 있어야 합니다. 다음을 수행하여 확인할 수 있습니다:
+기본적으로 `YOUR_PROJECT_ID-assets`라는 이름의 버킷이 있어야 합니다. 다음을 수행하여 확인할 수 있습니다:
 
 ```bash
-gcloud storage ls gs://<walkthrough-project-name/>-assets
+gcloud storage ls gs://YOUR_PROJECT_ID-assets
 ```
 
 있다면 좋습니다! 없다면 생성하세요:
 
 ```bash
-gcloud storage buckets create -l us-central1 gs://<walkthrough-project-name/>-assets
+gcloud storage buckets create -l us-central1 gs://YOUR_PROJECT_ID-assets
 ```
 
 참고
@@ -154,4 +151,3 @@ uv run main.py
 
 `/`를 찾을 수 없다는 오류가 발생하면 `/home`으로 이동하세요.
 
-<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
