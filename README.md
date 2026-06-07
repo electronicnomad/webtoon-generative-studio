@@ -2,7 +2,7 @@
 
 <a id="english"></a>
 
-# Webtoon Generator
+# Webtoon Generative Studio
 
 A specialized AI-powered workstation for webtoon and comic creators, built on Google Cloud's generative media platform.
 
@@ -46,7 +46,7 @@ Refer to [DEPLOY.md](DEPLOY.md) for Terraform-based deployment to Cloud Run.
 
 <a id="korean"></a>
 
-# Webtoon Generator
+# Webtoon Generative Studio
 
 Google Cloud의 생성형 미디어 플랫폼을 기반으로 구축된 **웹툰 및 만화 제작자를 위한 전문 AI 워크스테이션**입니다.
 
@@ -54,7 +54,7 @@ Google Cloud의 생성형 미디어 플랫폼을 기반으로 구축된 **웹툰
 
 ## 웹툰 제작 파이프라인
 
-Webtoon Generator는 작가들을 위해 최적화된 제작 흐름을 제공합니다.
+Webtoon Generative Studio는 작가들을 위해 최적화된 제작 흐름을 제공합니다.
 
 1.  **바나나 스튜디오 (아이디어):** Gemini 2.5 Flash(Nano Banana)를 사용한 초고속 컨셉 탐색.
 2.  **스토리보드 (기획):** 간단한 프롬프트로 시나리오와 비주얼 스토리보드 생성.

@@ -35,6 +35,9 @@ gha-creds-*.json
 .commit.txt
 .genkit/
 .jetskicli/
+.claude/
+GEMINI.md
+CLAUDE.md
 
 # Backup & Archives
 *.tar.gz
