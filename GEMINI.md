@@ -1,6 +1,6 @@
-# GEMINI.md - Gearframe Webtoon Studio
+# GEMINI.md - Webtoon Generator
 
-This project is a specialized fork of Vertex AI Creative Studio, re-engineered as **Gearframe Webtoon Studio**. It focuses exclusively on providing an all-in-one AI-powered pipeline for webtoon and comic creation.
+This project is a specialized fork of Vertex AI Creative Studio, re-engineered as **Webtoon Generator**. It focuses exclusively on providing an all-in-one AI-powered pipeline for webtoon and comic creation.
 
 ## Project Overview
 
@@ -16,7 +16,6 @@ This project is a specialized fork of Vertex AI Creative Studio, re-engineered a
 ## Architecture & Organization
 
 -   **Active Pages (`pages/`):** Only webtoon-related pages are active and imported in `main.py`.
--   **Archived Pages (`archive_pages/`):** General media generation files (Veo, Lyria, etc.) are moved here to keep the codebase focused.
 -   **State Management:** Page-specific states are co-located with their respective pages; global session data is in `state/state.py`.
 
 ## Building and Running

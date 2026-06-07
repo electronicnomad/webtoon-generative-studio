@@ -1,6 +1,6 @@
-# Contributing to Gearframe Webtoon Studio
+# Contributing to Webtoon Generator
 
-Thanks for your interest in contributing to Gearframe Webtoon Studio! Since this is a personal project, the contribution process is straightforward.
+Thanks for your interest in contributing to Webtoon Generator! Since this is a personal project, the contribution process is straightforward.
 
 ## Getting Started
 

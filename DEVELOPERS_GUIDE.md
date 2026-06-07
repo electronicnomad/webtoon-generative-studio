@@ -2,9 +2,9 @@
 
 <a id="english"></a>
 
-# Developer's Guide (Gearframe Webtoon Studio)
+# Developer's Guide (Webtoon Generator)
 
-Welcome to the Gearframe Webtoon Studio! This guide provides an overview of the application's architecture, focused exclusively on the webtoon production pipeline.
+Welcome to the Webtoon Generator! This guide provides an overview of the application's architecture, focused exclusively on the webtoon production pipeline.
 
 ## Application Architecture
 
@@ -12,7 +12,6 @@ This application is built using Python with the Mesop UI framework and a FastAPI
 
 - **`main.py`**: The entry point. Imports only the webtoon-focused pages.
 - **`pages/`**: Contains active webtoon production pages (Cartoon, Storyboard, Banana Studio, etc.).
-- **`archive_pages/`**: (New) Contains previously integrated general media pages (Veo, Lyria, etc.) that are currently inactive to keep the studio focused.
 - **`components/`**: Reusable UI components.
 - **`models/`**: Business logic for interacting with Gemini and Imagen models.
 - **`state/`**: State management using Mesop's `@me.stateclass`.
@@ -36,7 +35,7 @@ This application is built using Python with the Mesop UI framework and a FastAPI
 
 # 개발자 가이드 (Developer's Guide)
 
-Gearframe Webtoon Studio 애플리케이션에 오신 것을 환영합니다! 이 가이드는 애플리케이션의 아키텍처, 주요 개발 패턴, 새로운 페이지를 추가하기 위한 단계별 튜토리얼을 제공합니다. 이 프로젝트의 구조를 이해하고 효과적으로 기여할 수 있도록 돕기 위해 작성되었습니다.
+Webtoon Generator 애플리케이션에 오신 것을 환영합니다! 이 가이드는 애플리케이션의 아키텍처, 주요 개발 패턴, 새로운 페이지를 추가하기 위한 단계별 튜토리얼을 제공합니다. 이 프로젝트의 구조를 이해하고 효과적으로 기여할 수 있도록 돕기 위해 작성되었습니다.
 
 ## 애플리케이션 아키텍처
 
@@ -277,7 +276,7 @@ def my_new_page_content():
 
 @me.page(
     path="/my_new_page",
-    title="내 새 페이지 - Gearframe Webtoon Studio",
+    title="내 새 페이지 - Webtoon Generator",
 )
 def page():
     with page_scaffold(page_name="my_new_page"):

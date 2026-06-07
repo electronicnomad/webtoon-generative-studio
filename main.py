@@ -33,7 +33,6 @@ from pydantic import BaseModel
 from app_factory import app
 from common.prompt_template_service import PromptTemplate
 from common.utils import create_display_url
-from routers import veo_router
 from config import default as config
 from models.video_processing import convert_mp4_to_gif
 from pages import about as about_page
@@ -244,7 +243,6 @@ app.mount(
     name="static",
 )
 
-app.include_router(veo_router.router)
 
 
 app.mount(

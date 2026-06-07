@@ -38,7 +38,6 @@ from components.page_scaffold import page_frame, page_scaffold
 from components.pill import pill
 from components.snackbar import snackbar
 from components.svg_icon.svg_icon import svg_icon
-from components.veo_button.veo_button import veo_button
 from config.default import Default as cfg
 from config.gemini_image_models import get_gemini_image_model_config
 from models.gemini import (
@@ -344,9 +343,6 @@ def _actions_row():
                 "Continue",
                 on_click=on_continue_click,
                 type="stroked",
-            )
-            veo_button(
-                gcs_uri=https_url_to_gcs_uri(state.selected_image_url)
             )
 
 
@@ -1390,7 +1386,7 @@ def on_load(e: me.LoadEvent):
 
 @me.page(
     path="/banana-studio",
-    title="Banana Studio - Gearframe Webtoon Studio",
+    title="Banana Studio - Webtoon Generator",
     on_load=on_load,
 )
 def page():

@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 
 @me.page(
     path="/character_consistency",
-    title="Gearframe Webtoon Studio - Character Consistency",
+    title="Webtoon Generator - Character Consistency",
 )
 def page():
     with page_scaffold(page_name="character_consistency"):

@@ -27,7 +27,7 @@ from state.state import AppState
 
 @me.page(
     path="/home",
-    title="Gearframe Webtoon Studio - Home",
+    title="Webtoon Generator - Home",
     security_policy=me.SecurityPolicy(
         dangerously_disable_trusted_types=True,
     ),
@@ -62,7 +62,7 @@ def home_page_content(app_state: me.state):  # pylint: disable=unused-argument
             flex_direction="column",
         )
     ):
-        header("Gearframe Webtoon Studio", "home")
+        header("Webtoon Generator", "home")
 
         # Group pages by the "group" key
         grouped_pages: Dict[str, List[Dict]] = defaultdict(list)

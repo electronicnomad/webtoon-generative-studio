@@ -35,7 +35,6 @@ from components.media_detail_viewer.media_detail_viewer import media_detail_view
 from components.media_tile.media_tile import get_pills_for_item, media_tile
 from components.page_scaffold import page_frame, page_scaffold
 from components.scroll_sentinel.scroll_sentinel import scroll_sentinel
-from components.veo.extend_dialog import extend_dialog, VeoExtendDialogState
 from config.default import Default as cfg
 from state.state import AppState
 
@@ -58,7 +57,6 @@ class PageState:
     )  # "all", "images", "videos", "audio"
     error_filter: str = "all"  # "all", "no_errors", "only_errors"
     tour_dialog_active_tab: str = "details"
-    extend_dialog_state: VeoExtendDialogState = field(default_factory=VeoExtendDialogState)
     datasets: List[dict] = field(default_factory=list)
     selected_dataset: str = "all"
     show_delete_dataset_dialog: bool = False
@@ -174,7 +172,7 @@ def on_dataset_filter_change(e: me.SelectSelectionChangeEvent):
 
 @me.page(
     path="/library_v2",
-    title="Gearframe Webtoon Studio - Library",
+    title="Webtoon Generator - Library",
     on_load=on_load,
 )
 def page():
@@ -336,7 +334,6 @@ def library_content():
         )
 
         library_dialog(pagestate)
-        extend_dialog(pagestate.extend_dialog_state, on_close=on_close_extend_dialog)
         delete_dataset_dialog(pagestate)
 
 
@@ -440,34 +437,6 @@ def on_media_item_click(e: me.ClickEvent):
     yield
 
 
-def on_extend_click(e: me.WebEvent):
-    """Handles 'Extend' click from media viewer."""
-    state = me.state(PageState)
-    proxy_url = e.value["url"]
-    print(f"DEBUG: on_extend_click triggered. Proxy URL: {proxy_url}")
-    if proxy_url:
-        # Use common utility to handle various URL formats
-        gcs_path = https_url_to_gcs_uri(proxy_url)
-        print(f"DEBUG: Extracted GCS Path: {gcs_path}")
-        
-        # Open the extend dialog
-        state.extend_dialog_state.is_open = True
-        state.extend_dialog_state.input_video_uri = gcs_path
-        print(f"DEBUG: Set extend_dialog_state.is_open = {state.extend_dialog_state.is_open}")
-        print(f"DEBUG: Set extend_dialog_state.input_video_uri = {state.extend_dialog_state.input_video_uri}")
-    yield
-
-
-def on_close_extend_dialog(e: me.ClickEvent):
-    """Closes the extend dialog and resets state."""
-    state = me.state(PageState)
-    # Check if we should refresh the library (if generation succeeded)
-    if state.extend_dialog_state.generated_video_uri:
-        yield from _load_media(state, is_filter_change=True)
-    
-    # Reset dialog state
-    state.extend_dialog_state = VeoExtendDialogState() 
-    yield
 
 
 def on_delete_click(e: me.ClickEvent):
@@ -557,16 +526,6 @@ def handle_edit_click(e: me.WebEvent):
     me.navigate("/nano-banana", query_params={"image_uri": gcs_uri})
 
 
-def on_veo_click(e: me.WebEvent):
-    """Event handler for when the VEO button is clicked in the detail viewer."""
-    proxy_url = e.value[
-        "url"
-    ]  # This is now the proxy URL, e.g., /media/bucket/object.png
-    if proxy_url:
-        # Convert the proxy URL back to just the GCS path (bucket/object.png)
-        gcs_path = proxy_url.replace("/media/", "", 1)
-        me.navigate(url="/veo", query_params={"image_path": gcs_path})
-    yield
 
 
 def json_default_serializer(o):
@@ -715,12 +674,6 @@ def render_tour_detail_dialog(storyboard: dict):
             )
         ):
             me.button("Close", on_click=on_close_details_dialog, type="stroked")
-            me.button(
-                "Continue Styling",
-                on_click=on_continue_styling_click,
-                key=storyboard.get("id"),
-                type="raised",
-            )
 
 
 @me.component
@@ -774,19 +727,7 @@ def render_default_detail_dialog(item: MediaItem):
             asdict(item), indent=2, default=json_default_serializer
         ),
         on_edit_click=handle_edit_click,
-        on_veo_click=on_veo_click,
-        on_extend_click=on_extend_click,
     )
-
-    # Add a button to link back to the object rotation page if applicable
-    if item.object_rotation_project_id:
-        with me.box(style=me.Style(margin=me.Margin(top=16))):
-            me.button(
-                "View Rotation Project",
-                on_click=on_view_rotation_project_click,
-                key=item.object_rotation_project_id,
-                type="stroked",
-            )
 
     # --- Categorized Source Asset Sections ---
 
@@ -875,27 +816,4 @@ def _render_source_section(title: str, uris: List[str]):
 
 
 
-def on_continue_styling_click(e: me.ClickEvent):
-    """Navigates the user to the interior design page to continue styling."""
-    storyboard_id = e.key
-    if storyboard_id:
-        me.navigate(
-            url="/interior_design",
-            query_params={
-                "storyboard_id": f"{storyboard_id}",
-            },
-        )
 
-    yield
-
-def on_view_rotation_project_click(e: me.ClickEvent):
-    """Navigates the user to the object rotation page to view a project."""
-    project_id = e.key
-    if project_id:
-        me.navigate(
-            url="/object-rotation",
-            query_params={
-                "object_rotation_id": f"{project_id}",
-            },
-        )
-    yield

@@ -1,6 +1,6 @@
 {
-    "title": "About Gearframe Webtoon Studio",
-    "introduction": "Welcome to Gearframe Webtoon Studio, an all-in-one AI-powered workstation for webtoon and comic creation. This studio provides a seamless pipeline from initial idea to final panel, leveraging Google Cloud's latest generative AI models including Gemini 2.5 Flash for ultra-fast ideation and Imagen 3/4 for high-fidelity rendering.\n\nOur mission is to empower creators by automating repetitive tasks and providing intelligent tools for creative exploration. Whether you are a professional studio or an independent artist, Gearframe Webtoon Studio is your partner in storytelling.",
+    "title": "About Webtoon Generator",
+    "introduction": "Welcome to Webtoon Generator, an all-in-one AI-powered workstation for webtoon and comic creation. This studio provides a seamless pipeline from initial idea to final panel, leveraging Google Cloud's latest generative AI models including Gemini 2.5 Flash for ultra-fast ideation and Imagen 3/4 for high-fidelity rendering.\n\nOur mission is to empower creators by automating repetitive tasks and providing intelligent tools for creative exploration. Whether you are a professional studio or an independent artist, Webtoon Generator is your partner in storytelling.",
     "sections": [
         {
             "id": "banana_studio",
@@ -30,7 +30,7 @@
         {
             "id": "architecture",
             "title": "Modern AI Stack",
-            "description": "Gearframe Webtoon Studio is built using Mesop and FastAPI, optimized for rapid AI application development and seamless integration with Google Cloud's Vertex AI platform."
+            "description": "Webtoon Generator is built using Mesop and FastAPI, optimized for rapid AI application development and seamless integration with Google Cloud's Vertex AI platform."
         }
     ]
 }

@@ -13,12 +13,15 @@ __pycache__
 
 # IDE / OS
 .vscode
+.idea/
 .DS_Store
 *.swp
 
 # Project Specific & Generated
 samples/
 local/
+.local-env/
+.local/
 recaps/
 plans/
 .agent/
@@ -31,6 +34,7 @@ dist
 gha-creds-*.json
 .commit.txt
 .genkit/
+.jetskicli/
 
 # Backup & Archives
 *.tar.gz
@@ -66,3 +70,4 @@ terraform.rc
 # Logs
 server.log
 drivectl-mcp.log
+
